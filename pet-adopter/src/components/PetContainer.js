@@ -10,7 +10,7 @@ class PetContainer extends Component {
       <div>
         {
           this.props.pets.map((pet) => {
-            return <PetCard pet={pet} handleClick={this.props.handleClick}/>
+            return <PetCard pet={pet} key={pet.id} handleClick={this.props.handleClick}/>
           })
         }
       </div>
