@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PetCard from './PetCard'
-import PetCardBack from './PetCardBack'
 
 class PetContainer extends Component {
   render() {
-    console.log(this.props.pets)
     return (
-      <div>
-        {
-          this.props.pets.map((pet) => {
-            return <PetCard pet={pet} key={pet.id} handleClick={this.props.handleClick}/>
-          })
-        }
+    <div>
+      <div className="ui header">
+          <select className="ui dropdown" onChange={this.props.handleSorted}>
+            <option value="all">Show all </option>
+            <option value="name"> Sort by Name </option>
+          </select>
+          <input onChange={this.props.handleCat} type="checkbox" />
+      </div>
+        <div className="ui page grid">
+          {
+            this.props.pets.map((pet) => {
+              return <PetCard pet={pet}
+              handleClick={this.props.handleClick} />
+            })
+          }
+      </div>
       </div>
     )
   }
