@@ -25,7 +25,6 @@ class PetCard extends Component {
         <h3> Animal:{this.props.pet.animal}</h3>
         <h3> Age:{this.props.age}</h3>
         <h3> Breed: {this.props.pet.breed}</h3>
-        <img src={(this.props.pet.name)} />
         </div>
       )
     } else {
