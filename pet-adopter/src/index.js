@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App2 from './App2';
 // import * as serviceWorker from './serviceWorker';
+import 'semantic-ui-css/semantic.min.css'
+//npm add semantic-ui-css
 
 // const routing = (
 //   <Router>
