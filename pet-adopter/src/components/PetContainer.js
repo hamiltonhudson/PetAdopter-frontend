@@ -6,6 +6,7 @@ class PetContainer extends Component {
   render() {
     return (
     <div>
+      <h1> Pets! </h1>
       <div className="ui header">
           <select className="ui dropdown" onChange={this.props.handleSorted}>
             <option value="all">Show all </option>

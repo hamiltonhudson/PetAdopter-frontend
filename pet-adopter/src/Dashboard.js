@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PetContainer from './components/PetContainer'
+import { Route } from 'react-router-dom';
+import Welcome from './Welcome'
 
-class App2 extends Component {
+class Dashboard extends Component {
 
   state = {
     pets:[],
     clicked:false,
+    loggedIn: false
   }
 
   componentDidMount() {
@@ -50,15 +53,25 @@ class App2 extends Component {
 // }
 
 //^ need to fix this function. Filters just cats, but then mutates pets state to always be just cats
-
+handleClick = () => {
+  this.setState({
+    loggedIn:!this.state.loggedIn
+  })
+}
 
   render() {
+    console.log('dashboard', this.props)
     return(
       <div className="App">
-      <PetContainer pets={this.state.pets} handleClick={this.handleClick} handleSorted={this.handleSorted} handleCat={this.handleCat}/>
+        {/* <Route path="/" component={(props) => {console.log(props); return <h1>text</h1>}}/> */}
+        { this.state.loggedIn ?
+          <PetContainer pets={this.state.pets} handleSorted={this.handleSorted} handleCat={this.handleCat}/>
+        :
+        <Welcome handleClick={this.handleClick} />
+        }
       </div>
     )
   }
 }
 
-export default App2;
+export default Dashboard;

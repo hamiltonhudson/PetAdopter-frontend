@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 
-class App extends Component {
+class Welcome extends Component {
   render() {
     return (
       <div className="App">
@@ -13,18 +13,16 @@ class App extends Component {
           <p>
             Adopt A Pet!
           </p>
-          <a
-            className="App-link"
-              href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            User Sign-In | Home Sign-In
-          </a>
-        </header>
+          <Link to='/signin' handleClick={this.props.handleClick} >
+            Sign-In
+          </Link>
+          <Link to='/signup' >
+            Sign-Up
+          </Link>
+            </header>
       </div>
     );
   }
 }
 
-export default App;
+export default Welcome;

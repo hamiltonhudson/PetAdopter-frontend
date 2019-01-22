@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 
 class PetCard extends Component {
 
-  // const { pet } = props;
-  // let botType;
-
   state = {
     clicked:false
   }

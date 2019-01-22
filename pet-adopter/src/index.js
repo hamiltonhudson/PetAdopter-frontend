@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
-// import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
-import App2 from './App2';
+import Dashboard from './Dashboard';
+import Signin from './components/Signin'
+import Signup from './components/Signup'
 // import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css'
 //npm add semantic-ui-css
@@ -24,7 +26,7 @@ import 'semantic-ui-css/semantic.min.css'
 //   </Router>
 // )
 
-ReactDOM.render(<App2 />, document.getElementById('root'));
+ReactDOM.render(<Router><Fragment> <Route path='/' exact component={Dashboard}/> <Route path='/signin' component={Signin}/> <Route path='/signup' component={Signup}/> </Fragment></Router>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
