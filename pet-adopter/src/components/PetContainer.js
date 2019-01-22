@@ -21,8 +21,9 @@ class PetContainer extends Component {
         {
           this.props.pets.map((pet) => {
             return <PetCard key={pet.id} pet={pet}
-              handleClick={this.props.handleClick} />
-            })
+              handleMyPets={this.props.handleMyPets}
+              currentUser={this.props.currentUser}/>
+          })
           }
       </div>
       </div>

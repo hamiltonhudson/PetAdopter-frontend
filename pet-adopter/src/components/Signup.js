@@ -11,7 +11,6 @@ class Signup extends React.Component {
   }
 
   handleChange = (event) => {
-    console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -36,7 +35,6 @@ class Signup extends React.Component {
   }
 
   render() {
-    console.log('signup', this.props.handleClick)
 
     const signUpForm = <div>
       <h1>Welcome to signup</h1>
@@ -57,7 +55,6 @@ class Signup extends React.Component {
         />
       </form>
     </div>
-    console.log("In SignUp. Current user is :", this.props.currentUser)
     return this.props.currentUser ? <Redirect to="/" /> : signUpForm
   }
 }

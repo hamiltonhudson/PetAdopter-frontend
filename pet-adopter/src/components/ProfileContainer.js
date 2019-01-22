@@ -1,5 +1,6 @@
 import React from 'react';
 import MyPets from './MyPets';
+import {Link} from 'react-router-dom'
 
 class ProfileContainer extends React.Component {
   render() {
@@ -7,7 +8,14 @@ class ProfileContainer extends React.Component {
       <div className="ui container">
         <h1>Profile Container</h1>
         <h2>User's Name:{this.props.currentUser.name} </h2>
-        <MyPets />
+        <h1>My Pets List</h1>
+        <div className="ui page grid">
+          {
+            this.props.myPets.map(mypet => {
+              return <MyPets key={mypet.pet_id} {...mypet} pets={this.props.pets}/> })
+          }
+          <Link to='/'>Back to Pet Index</Link>
+        </div>
       </div>
     )
   }
