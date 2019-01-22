@@ -25,7 +25,7 @@ class Signup extends React.Component {
   }
 
   render() {
-    console.log('signup', this.props)
+    console.log('signup', this.props.handleClick)
     return(
       <div>
         <h1>Welcome to signup</h1>

@@ -1,10 +1,13 @@
 import React from 'react';
-
+import ProfileContainer from './ProfileContainer'
 
 class Signin extends React.Component {
   render() {
     return(
-      <h1>Welcome to signin</h1>
+      <div>
+        <h1>Welcome to signin</h1>
+        <ProfileContainer />
+      </div>
     )
   }
 }
