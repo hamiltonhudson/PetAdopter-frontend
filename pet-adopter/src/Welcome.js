@@ -17,7 +17,7 @@ class Welcome extends Component {
             Sign-In
           </Link>
           <br></br>
-          <Link to='/signup' handleClick={this.props.handleClick}>
+          <Link to='/signup'>
             Sign-Up
           </Link>
             </header>

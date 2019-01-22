@@ -6,7 +6,7 @@ class ProfileContainer extends React.Component {
     return(
       <div className="ui container">
         <h1>Profile Container</h1>
-        <h2>User's Name: </h2>
+        <h2>User's Name:{this.props.currentUser.name} </h2>
         <MyPets />
       </div>
     )
