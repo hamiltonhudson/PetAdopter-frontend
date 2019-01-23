@@ -82,6 +82,14 @@
   text-decoration: underline;
 }
 
+.headerFour {
+  font-family: 'Gloria Hallelujah', cursive;
+  color: #ff8e53;
+  font-size: 40px;
+  background: linear-gradient(45deg, #6bfeae 30%, #53dbff 90%);
+  padding: 12px;
+}
+
 .petTile {
   display: inline;
   background-repeat: no-repeat;
