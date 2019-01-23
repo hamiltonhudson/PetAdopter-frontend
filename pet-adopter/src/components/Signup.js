@@ -44,6 +44,7 @@ class Signup extends React.Component {
   }
 
   render() {
+    console.log(this.props.currentUser)
     const signUpForm =
       <div className="loginDiv">
         <h1 className="loginHeader">Sign Up To Save Pets!</h1>

@@ -14,7 +14,8 @@ class ProfileContainer extends React.Component {
           <div className="ui page grid">
             {
               this.props.myPets.map(mypet => {
-                return <MyPets key={mypet.pet_id} {...mypet} pets={this.props.pets}/> })
+                return <MyPets key={mypet.pet_id} {...mypet} pets={this.props.pets}
+                  handleAdopt={this.props.handleAdopt} currentUser={this.props.currentUser}/> })
             }
           </div>
         </div>

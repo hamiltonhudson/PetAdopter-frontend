@@ -22,7 +22,8 @@ class MyPets extends React.Component {
                 <h1 className="petTileh3">{foundPet.name}</h1>
                 <img className="ui inline image" src={(foundPet.photo)} />
                 <button className= "ui button" onClick={this.handleClick}> View More Details! </button>
-                <button onClick={()=>foundPet.handleMyPets(foundPet.currentUser.id, this.props.pet.id)} className= "ui button" >Adopt</button>
+                <button onClick={() => this.props.handleAdopt(this.props.currentUser.id, foundPet.id)}
+                className= "ui button">Adopt</button>
               </div>
             </div>
             </div>
@@ -32,15 +33,16 @@ class MyPets extends React.Component {
               <div className="petContainer">
                 <div className="ui card image">
                   <div className="petTile">
-                      <h1 className="petTileh3">{foundPet.name}</h1>
-                      <h3> Description:{foundPet.description}</h3>
-                      <h3> Sex:{foundPet.sex}</h3>
-                      <h3> Animal:{foundPet.animal}</h3>
-                      <h3> Age:{foundPet.age}</h3>
-                      <h3> Breed: {foundPet.breed}</h3>
-                      <button className= "ui button" onClick={this.handleClick}> Back </button>
-                      <button onClick={()=>this.props.handleMyPets(this.props.pet.id, this.props.currentUser.id)} className= "ui button" >Adopt</button>
-                    </div>
+                    <h1 className="petTileh3">{foundPet.name}</h1>
+                    <h3> Description:{foundPet.description}</h3>
+                    <h3> Sex:{foundPet.sex}</h3>
+                    <h3> Animal:{foundPet.animal}</h3>
+                    <h3> Age:{foundPet.age}</h3>
+                    <h3> Breed: {foundPet.breed}</h3>
+                    <button className= "ui button" onClick={this.handleClick}> Back </button>
+                    <button onClick={() => this.props.handleAdopt(this.props.currentUser.id, foundPet.id)}
+                    className= "ui button">Adopt</button>
+                  </div>
                   </div>
                 </div>
         )

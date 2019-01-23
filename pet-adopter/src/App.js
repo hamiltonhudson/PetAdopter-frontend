@@ -6,16 +6,17 @@ import { Route } from 'react-router-dom';
 import ProfileContainer from "./components/ProfileContainer";
 
 const apiMatchesAddress = 'http://localhost:3000/api/v1/matches'
+const userAdoptAddress = 'http://localhost:3000/api/v1/users'
 
 class App extends React.Component {
   state = {
-    pets:[],
-    clicked:false,
+    pets: [],
+    clicked: false,
     currentUser: null,
     myPets:[],
-    checkboxClick:false,
-    animalCheck:""
-
+    checkboxClick: false,
+    animalCheck: "",
+    adopted: false
   }
 
   componentDidMount() {
@@ -49,7 +50,7 @@ class App extends React.Component {
           })
     }
 
-    fetch(apiMatchesAddress,postConfig)
+    fetch(apiMatchesAddress, postConfig)
       .then(r => r.json())
       .then(petMatch => {
         let foundPet = this.state.myPets.find(pet => pet.pet_id === petId)
@@ -92,13 +93,35 @@ class App extends React.Component {
     }
   }
 
+  handleAdopt = (userId, petId) => {
+    //end goal is change the state of adopt, which will be toggled to true if you click adopt button
+    //which will then render the button to say what we WANT IT TO SAY!!!!!!!!!!!!!!!!!!!!
+    console.log(userId, petId)
+    const postConfig = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+          pet_id: petId
+      })
+    }
+    fetch(`${userAdoptAddress}/${userId}`, postConfig)
+      .then(r => r.json())
+      // debugger
+      .then(data => {
+        console.log(data)
+      })
+    }
+
   render() {
     return <>
       <Route path='/' exact render={()=> <Dashboard animalCheck={this.state.animalCheck} checkboxClick={this.state.checkboxClick} pets={this.state.pets} handleFilter={this.handleFilter} handleSorted={this.handleSorted} currentUser={this.state.currentUser} handleMyPets={this.handleMyPets} />}/>
       <Route path='/signin' component={Signin }/>
       <Route path='/signup' render={() => <Signup setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} />}
       />
-      <Route path='/profile' render={() => <ProfileContainer pets={this.state.pets} myPets={this.state.myPets} currentUser={this.state.currentUser} />}
+      <Route path='/profile' render={() => <ProfileContainer pets={this.state.pets} myPets={this.state.myPets} currentUser={this.state.currentUser} handleAdopt={this.handleAdopt}/>}
       />
     </>
 
