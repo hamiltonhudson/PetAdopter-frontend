@@ -12,7 +12,9 @@ class App extends React.Component {
     pets:[],
     clicked:false,
     currentUser: null,
-    myPets:[]
+    myPets:[],
+    checkboxClick:false,
+    animalCheck:""
 
   }
 
@@ -75,9 +77,24 @@ class App extends React.Component {
     }
   }
 
+  handleFilter = (event) => {
+    if(this.state.checkboxClick) {
+      this.setState({
+        checkboxClick:!this.state.checkboxClick,
+        animalCheck:event.target.name
+      })
+    }
+    else {
+      this.setState({
+        checkboxClick:!this.state.checkboxClick,
+        animalCheck:event.target.name
+      })
+    }
+  }
+
   render() {
     return <>
-      <Route path='/' exact render={()=> <Dashboard pets={this.state.pets} handleSorted={this.handleSorted} currentUser={this.state.currentUser} handleMyPets={this.handleMyPets} />}/>
+      <Route path='/' exact render={()=> <Dashboard animalCheck={this.state.animalCheck} checkboxClick={this.state.checkboxClick} pets={this.state.pets} handleFilter={this.handleFilter} handleSorted={this.handleSorted} currentUser={this.state.currentUser} handleMyPets={this.handleMyPets} />}/>
       <Route path='/signin' component={Signin }/>
       <Route path='/signup' render={() => <Signup setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} />}
       />

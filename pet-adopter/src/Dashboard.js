@@ -35,7 +35,7 @@ class Dashboard extends Component {
       <div className="App">
         {/* <Route path="/" component={(props) => {console.log(props); return <h1>text</h1>}}/> */}
         { this.props.currentUser ?
-          <PetContainer pets={this.props.pets} handleSorted={this.props.handleSorted} handleMyPets={this.props.handleMyPets} currentUser={this.props.currentUser} />
+          <PetContainer pets={this.props.pets} animalCheck={this.props.animalCheck} checkboxClick={this.props.checkboxClick} handleFilter={this.props.handleFilter} handleSorted={this.props.handleSorted} handleMyPets={this.props.handleMyPets} currentUser={this.props.currentUser} />
         :
         <Welcome />
         }

@@ -6,6 +6,37 @@ import PetCard from './PetCard';
 
 class PetContainer extends Component {
   render() {
+    let petList
+    if (this.props.checkboxClick){
+    petList = this.props.pets.map((pet) => {
+        if (pet.animal === "Cat" && this.props.animalCheck==="Cats"){
+          return <PetCard key={pet.id} pet={pet}
+            handleMyPets={this.props.handleMyPets}
+            currentUser={this.props.currentUser}
+            />
+        }
+        else if (pet.animal === "Dog" && this.props.animalCheck==="Dogs"){
+          return <PetCard key={pet.id} pet={pet}
+            handleMyPets={this.props.handleMyPets}
+            currentUser={this.props.currentUser}
+            />
+          }
+          else if (pet.animal === "Rabbit" && this.props.animalCheck==="Rabbits"){
+            return <PetCard key={pet.id} pet={pet}
+              handleMyPets={this.props.handleMyPets}
+              currentUser={this.props.currentUser}
+              />
+            }
+      })
+    } else {
+      petList = this.props.pets.map((pet) => {
+        return <PetCard key={pet.id} pet={pet}
+          handleMyPets={this.props.handleMyPets}
+          currentUser={this.props.currentUser}
+          />
+      })
+
+    }
     return (
     <div>
       <Link to="profile">
@@ -20,17 +51,27 @@ class PetContainer extends Component {
           <option value="all">Show all </option>
           <option value="name"> Sort by Name </option>
         </select>
-        <input className="ui checkbox" onChange={this.props.handleCat} type="checkbox" />
+        <div><input name= "Cats" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
+        <label for="Cats">Cats Only!</label>
+        </div>
+        <div><input name= "Dogs" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
+        <label for="Dogs">Dogs Only!</label>
+        </div>
+        <div><input name= "Rabbits" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
+        <label for="Rabbits">Rabbits Only!</label>
+        </div>
       </div>
       <br></br>
       <div className="ui page grid">
-        {
+        {/*
           this.props.pets.map((pet) => {
             return <PetCard key={pet.id} pet={pet}
               handleMyPets={this.props.handleMyPets}
-              currentUser={this.props.currentUser}/>
+              currentUser={this.props.currentUser}
+              />
           })
-        }
+        */}
+        {petList}
       </div>
     </div>
     )
