@@ -71,6 +71,8 @@
   text-shadow: 2px 2px #ff6b00;
   padding-top: 12px;
   text-decoration: overline;
+  /* text-decoration-line: underline; */
+  /* text-decoration-style: double; */
 }
 
 .headerThree {
@@ -88,21 +90,32 @@
   font-size: 40px;
   background: linear-gradient(45deg, #6bfeae 30%, #53dbff 90%);
   padding: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 1px;
 }
 
+.petContainer {
+  margin-left: -4px;
+  margin-bottom: 20px;
+  margin-right: -4px;
+  margin-top: 2px;
+  /* margin: 0 10px 10px 0px; */
+}
 .petTile {
-  /* display: inline; */
+  display: block;
   background-repeat: no-repeat;
   background-position: center 90%;
   float: left;
   margin: 1%;
-  margin-bottom: 4%;
-  padding: 2%;
-  padding-bottom: 4%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  padding: 4%;
+  padding-bottom: 8%;
+  padding-top: 4%;
   outline: #28610e dashed thick;
   transition: 0.75s;
   opacity: 1;
-  overflow: hidden;
+  overflow-wrap: break-word;
   padding-left: 4px;
 }
 

@@ -25,7 +25,7 @@ class PetContainer extends Component {
             return <PetCard key={pet.id} pet={pet}
               handleMyPets={this.props.handleMyPets}
               currentUser={this.props.currentUser}
-              />
+                   />
             }
       })
     } else {
@@ -52,13 +52,13 @@ class PetContainer extends Component {
           <option value="name"> Sort by Name </option>
         </select>
         <div><input name= "Cats" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-        <label for="Cats">Cats Only!</label>
+          <label for="Cats">Cats Only!</label>
         </div>
         <div><input name= "Dogs" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-        <label for="Dogs">Dogs Only!</label>
+          <label for="Dogs">Dogs Only!</label>
         </div>
         <div><input name= "Rabbits" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-        <label for="Rabbits">Rabbits Only!</label>
+          <label for="Rabbits">Rabbits Only!</label>
         </div>
       </div>
       <br></br>
@@ -66,9 +66,9 @@ class PetContainer extends Component {
         {/*
           this.props.pets.map((pet) => {
             return <PetCard key={pet.id} pet={pet}
-              handleMyPets={this.props.handleMyPets}
-              currentUser={this.props.currentUser}
-              />
+          handleMyPets={this.props.handleMyPets}
+          currentUser={this.props.currentUser}
+          />
           })
         */}
         {petList}
