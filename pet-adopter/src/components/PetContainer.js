@@ -48,7 +48,7 @@ class PetContainer extends Component {
       </Animated>
       <div className="ui header">
         <select className="ui dropdown" onChange={this.props.handleSorted}>
-          <option value="all">Show all </option>
+          <option value="all">Sort </option>
           <option value="name"> Sort by Name </option>
         </select>
         <div><input name= "Cats" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
