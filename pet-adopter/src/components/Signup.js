@@ -1,8 +1,8 @@
 import React from 'react';
-import {Redirect} from "react-router-dom"
+import { Redirect } from "react-router-dom";
+// import '../App.scss'
 
 const apiUsersAddress = 'http://localhost:3000/api/v1/users'
-
 
 class Signup extends React.Component {
   state = {
@@ -20,11 +20,20 @@ class Signup extends React.Component {
     event.preventDefault()
     const postConfig = {
     	method:"POST",
-    	headers:{"Content-type":"application/json"},
-      body:JSON.stringify({user:{name:this.state.name,email:this.state.email}})
+    	headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({
+        user: {
+          name: this.state.name,
+          email:this.state.email
+        }
+      })
     }
 
-    fetch(apiUsersAddress,postConfig).then(r=>r.json()).then(userObj=>this.props.setCurrentUser(userObj))
+    fetch(apiUsersAddress,postConfig)
+      .then(r=>r.json())
+      .then(userObj => this.props.setCurrentUser(userObj))
     // console.log(event.target.value)
     // event.preventDefault()
     // this.setState({
@@ -35,26 +44,29 @@ class Signup extends React.Component {
   }
 
   render() {
-
-    const signUpForm = <div>
-      <h1>Welcome to signup</h1>
-      <form onSubmit={this.handleSubmit}>
-        <input onChange={this.handleChange}
-          name="name"
-          value={this.state.name}
-          placeholder="name"
-        />
-        <input onChange={this.handleChange}
-          name="email"
-          value={this.state.email}
-          placeholder="email"
-        />
-        <input onClick={this.props.handleClick}
-          type="submit"
-          className="ui button"
-        />
-      </form>
-    </div>
+    const signUpForm =
+      <div className="loginDiv">
+        <h1 className="loginHeader">Sign Up To Save Pets!</h1>
+        <br/><br/>
+        <div className="login">
+          <form onSubmit={this.handleSubmit}>
+            <input onChange={this.handleChange}
+              name="name"
+              value={this.state.name}
+              placeholder="name"
+            />
+            <input onChange={this.handleChange}
+              name="email"
+              value={this.state.email}
+              placeholder="email"
+            />
+            <input onClick={this.props.handleClick}
+              type="submit"
+              className="ui button"
+            />
+          </form>
+        </div>
+      </div>
     return this.props.currentUser ? <Redirect to="/" /> : signUpForm
   }
 }

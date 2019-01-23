@@ -40,4 +40,4 @@ class MyPets extends React.Component {
     }
 }
 
-export default MyPets
+export default MyPets;

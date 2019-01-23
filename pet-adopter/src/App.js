@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react';
 import Dashboard from './Dashboard';
-import Signin from './components/Signin'
-import Signup from './components/Signup'
+import Signin from './components/Signin';
+import Signup from './components/Signup';
 import { Route } from 'react-router-dom';
-import ProfileContainer from "./components/ProfileContainer"
+import ProfileContainer from "./components/ProfileContainer";
 
 const apiMatchesAddress = 'http://localhost:3000/api/v1/matches'
 
@@ -88,4 +88,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default App;

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import PetContainer from './components/PetContainer'
 import { Route } from 'react-router-dom';
-import Welcome from './Welcome'
+import Welcome from './Welcome';
+import PetContainer from './components/PetContainer';
 
 class Dashboard extends Component {
-
 
   // handleCat=(event) => {
   //  if (this.state.clicked === false){
@@ -38,7 +37,7 @@ class Dashboard extends Component {
         { this.props.currentUser ?
           <PetContainer pets={this.props.pets} handleSorted={this.props.handleSorted} handleMyPets={this.props.handleMyPets} currentUser={this.props.currentUser} />
         :
-        <Welcome/>
+        <Welcome />
         }
       </div>
     )

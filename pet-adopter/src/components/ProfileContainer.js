@@ -1,13 +1,13 @@
 import React from 'react';
 import MyPets from './MyPets';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
   render() {
     return(
       <div className="ui container">
-        <h1>Profile Container</h1>
-        <h2>User's Name:{this.props.currentUser.name} </h2>
+        <h1 className="ui header">Profile Container</h1>
+        <h2>{this.props.currentUser.name} </h2>
         <h1>My Pets List</h1>
         <div className="ui page grid">
           {

@@ -8,7 +8,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #5f6d87;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,32 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #72f6a3;
+  font-family: 'Miniver', cursive;
+  font-size: 35px;
+}
+
+.App-link:hover {
+  color: #c98de6;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+.App-header-two {
+  font-family: 'Knewave', cursive;
+  font-size: 85px;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+.App-header-two:pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
 }
 
 @keyframes App-logo-spin {
@@ -31,34 +56,91 @@
   }
 }
 
+.headerOne {
+  font-family: 'Gloria Hallelujah', cursive;
+  color: #31aaba;
+  font-size: 40px;
+  background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+  padding: 12px;
+}
+
+.headerTwo {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 65px;
+  color: #0d8568;
+  text-shadow: 2px 2px #ff6b00;
+  padding-top: 12px;
+  text-decoration: overline;
+}
+
+.headerThree {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 20px;
+  font-weight: bold;
+  color: #0d8568;
+  padding: 5px;
+  text-decoration: underline;
+}
+
 .petTile {
   display: inline;
   background-repeat: no-repeat;
   background-position: center 90%;
   float: left;
-  margin: 2%;
-  padding: 1%;
-  outline: #3B0B0B dotted thick;
+  margin: 1%;
+  margin-bottom: 4%;
+  padding: 2%;
+  padding-bottom: 4%;
+  outline: #28610e dashed thick;
   transition: 0.75s;
   opacity: 1;
 }
 
-.pigTile h3 {
+.petTileh3 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 55px;
   color: #FBB;
 }
 
-.minPigTile {
+.minPetTile {
   width: 250px;
   height: 250px;
   background-size: cover;
 }
 
-.maxPigTile {
+.maxPetTile {
   background-size: cover;
   width: 500px;
   height: 500px;
 }
 
-.pigTile:hover {
+.petTile:hover {
   transform: scale(1.05);
+}
+
+.loginDiv {
+  margin-top: 105px;
+  padding: 12px 13px;
+    box-shadow: 0 4px 6px 0px rgba(255, 142, 83, 0.72);
+}
+
+.login {
+  margin-top: 25px;
+  padding: 12px 13px;
+  font-size: 25px;
+  font-color: #1c3875
+}
+
+.loginHeader {
+  /* background-color: #591b69; */
+  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
+  color: #FF8E53;
+  font-family: 'Gloria Hallelujah', cursive;
+  padding: 12px 13px;
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 45px;
+  box-shadow: 0 4px 6px 3px rgba(255, 142, 83, 0.72);
 }

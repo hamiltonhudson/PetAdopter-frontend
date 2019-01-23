@@ -1,0 +1,87 @@
+@mixin gradient-text($gradient, $bg : 'light') {
+  @supports(mix-blend-mode: lighten) {
+    display: inline-block;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+
+      background: unquote($gradient);
+      pointer-events: none;
+    }
+
+    @if ($bg == 'light') {
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply;
+
+      &::before {
+        mix-blend-mode: screen;
+      }
+    } @else {
+      color: #fff;
+      background: #000;
+      mix-blend-mode: lighten;
+
+      &::before {
+        mix-blend-mode: multiply;
+      }
+    }
+  }
+}
+
+section.light {
+  background: #eee;
+
+  .gradient1 {
+    @include gradient-text('linear-gradient(to right,#23966c, #faaa54, #e23b4a, #db0768, #360670)', 'light');
+  }
+
+  .gradient2 {
+    @include gradient-text('radial-gradient(circle, #23966c, #faaa54, #e23b4a, #db0768, #360670)', 'light');
+  }
+}
+
+section.dark {
+  background: #222;
+
+  .gradient1 {
+    color: #fff;
+    // Fallback color
+
+    @include gradient-text('linear-gradient(to right,#23966c, #faaa54, #e23b4a, #db0768, #360670)', 'dark');
+  }
+
+  .gradient2 {
+    color: #fff;
+
+    @include gradient-text('radial-gradient(circle, #23966c, #faaa54, #e23b4a, #db0768, #360670)', 'dark');
+  }
+}
+
+/* Page styling, ignore */
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+section {
+  min-height: 50vh;
+  padding: 2em;
+}
+
+.gradient1 {
+  font-size: 96px;
+  margin: 0.5em;
+  opacity: 0.9;
+}
+
+.gradient2 {
+  text-align: center;
+  margin: 1em auto;
+  width: 10em;
+}

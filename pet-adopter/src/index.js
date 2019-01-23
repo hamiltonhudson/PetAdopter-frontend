@@ -1,33 +1,13 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
-// import './index.css';
 // import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css'
+// import App from "./App"
 import App from "./App"
 //npm add semantic-ui-css
 
-// const routing = (
-//   <Router>
-//     <div>
-//       <ul>
-//         <li>
-//           <Link to="/">Home</Link>
-//         </li>
-//         <li>
-//           <Link to="/pets">Pets</Link>
-//         </li>
-//       </ul>
-//       <Route exact path="/" component={App} />
-//       {/* <Route path="/pets" component={PetContainer} /> */}
-//     </div>
-//   </Router>
-// )
-
-ReactDOM.render(
-  <Router>
-    <App />
-  </Router>, document.getElementById('root'));
+ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
