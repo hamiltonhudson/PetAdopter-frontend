@@ -38,7 +38,7 @@ class PetContainer extends Component {
 
     }
     return (
-    <div>
+    <div className="ui contianer">
       <Link to="profile">
         <p className="headerThree">My profile</p>
       </Link>
