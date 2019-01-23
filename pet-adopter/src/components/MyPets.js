@@ -13,7 +13,9 @@ class MyPets extends React.Component {
     }
 
   render() {
+    console.log(this.props.adopted)
     let foundPet = this.props.pets.find(pet => this.props.pet_id === pet.id)
+
       if(!this.state.clicked){
         return(
           <div className="petContainer">
@@ -23,7 +25,7 @@ class MyPets extends React.Component {
                 <img className="ui inline image" src={(foundPet.photo)} />
                 <button className= "ui button" onClick={this.handleClick}> View More Details! </button>
                 <button onClick={() => this.props.handleAdopt(this.props.currentUser.id, foundPet.id)}
-                className= "ui button">Adopt</button>
+                className= "ui button">{this.props.adopted && foundPet.id === this.props.petObj.pet_id ? "Adopted!" : "Adopt"}</button>
               </div>
             </div>
             </div>
@@ -41,7 +43,7 @@ class MyPets extends React.Component {
                     <h3> Breed: {foundPet.breed}</h3>
                     <button className= "ui button" onClick={this.handleClick}> Back </button>
                     <button onClick={() => this.props.handleAdopt(this.props.currentUser.id, foundPet.id)}
-                    className= "ui button">Adopt</button>
+                    className= "ui button">{this.props.adopted && foundPet.id === this.props.petObj.pet_id ? "Adopted!" : "Adopt"}</button>
                   </div>
                   </div>
                 </div>

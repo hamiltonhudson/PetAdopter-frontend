@@ -15,7 +15,10 @@ class ProfileContainer extends React.Component {
             {
               this.props.myPets.map(mypet => {
                 return <MyPets key={mypet.pet_id} {...mypet} pets={this.props.pets}
-                  handleAdopt={this.props.handleAdopt} currentUser={this.props.currentUser}/> })
+                  handleAdopt={this.props.handleAdopt} currentUser={this.props.currentUser}
+                  adopted={this.props.adopted}
+                  petObj={this.props.petObj}
+                  /> })
             }
           </div>
         </div>
