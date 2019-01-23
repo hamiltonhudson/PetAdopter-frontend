@@ -9,11 +9,14 @@ class ProfileContainer extends React.Component {
         <Link to='/' className="headerThree">Back to Pet Index</Link>
         <h2 className="headerFour">{this.props.currentUser.name}'s Pet List </h2>
         {/* <h1>My Pets List</h1> */}
-        <div className="ui page grid">
-          {
-            this.props.myPets.map(mypet => {
-              return <MyPets key={mypet.pet_id} {...mypet} pets={this.props.pets}/> })
-          }
+        <br/><br/><br/>
+        <div className="ui container">
+          <div className="ui page grid">
+            {
+              this.props.myPets.map(mypet => {
+                return <MyPets key={mypet.pet_id} {...mypet} pets={this.props.pets}/> })
+            }
+          </div>
         </div>
       </div>
     )
