@@ -7,7 +7,7 @@ import PetCard from './PetCard';
 class PetContainer extends Component {
   render() {
     return (
-    <div>
+    <div className="ui contianer">
       <Link to="profile">
         <p className="headerThree">My profile</p>
       </Link>
