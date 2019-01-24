@@ -47,23 +47,25 @@ class Signup extends React.Component {
     console.log(this.props.currentUser)
     const signUpForm =
       <div className="loginDiv">
-        <h1 className="loginHeader">Sign Up To Save Pets!</h1>
+        <h1 className="signupHeader">Sign Up To Save Pets!</h1>
         <br/><br/>
         <div className="login">
           <form onSubmit={this.handleSubmit}>
-            <input onChange={this.handleChange}
+            <input className="signupPlaceholders"
+              onChange={this.handleChange}
               name="name"
               value={this.state.name}
               placeholder="name"
             />
-            <input onChange={this.handleChange}
+            <input className="signupPlaceholders"
+              onChange={this.handleChange}
               name="email"
               value={this.state.email}
               placeholder="email"
             />
             <input onClick={this.props.handleClick}
               type="submit"
-              className="ui button"
+              className="signupButton"
             />
           </form>
         </div>

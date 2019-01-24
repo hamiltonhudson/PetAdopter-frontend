@@ -39,11 +39,9 @@ class PetContainer extends Component {
     }
     return (
     <div className="ui contianer">
-      <Animated animationIn="headShake" animationOut="zoomOutDown" isVisible={true}>
-        <Link to="profile">
-          <p className="headerThree">My profile</p>
-        </Link>
-      </Animated>
+      <Link to="profile">
+        <p className="headerThree">My profile</p>
+      </Link>
       <h1 className="headerOne">Welcome {this.props.currentUser.name}</h1>
       <Animated animationIn="tada" animationOut="flash" isVisible={true}>
         <h1 className="headerTwo"> Pets </h1>
@@ -54,13 +52,13 @@ class PetContainer extends Component {
           <option value="name"> Sort by Name </option>
         </select>
         <div><input name= "Cats" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-          <label for="Cats">Cats Only!</label>
+          <label htmlFor="Cats">Cats Only!</label>
         </div>
         <div><input name= "Dogs" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-          <label for="Dogs">Dogs Only!</label>
+          <label className="toggle" htmlFor="Dogs">Dogs Only!</label>
         </div>
         <div><input name= "Rabbits" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-          <label for="Rabbits">Rabbits Only!</label>
+          <label className="toggle" htmlFor="Rabbits">Rabbits Only!</label>
         </div>
       </div>
       <br></br>

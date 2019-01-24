@@ -84,6 +84,12 @@
   text-decoration: underline;
 }
 
+.headerThree:hover{
+  animationIn: headShake;
+  animationOut: zoomOutDown;
+  isVisible: true
+}
+
 .headerFour {
   font-family: 'Gloria Hallelujah', cursive;
   color: #ff8e53;
@@ -92,6 +98,11 @@
   padding: 12px;
   padding-bottom: 12px;
   margin-bottom: 1px;
+}
+
+.toggle {
+  fontVariant: small-caps;
+  font-size: 18px;
 }
 
 .petContainer {
@@ -140,7 +151,7 @@
 
 .petTile:hover {
   /* transform: scale(1.05); */
-  transform: skewX(-10deg);
+  transform: skewX(4deg);
 }
 
 .myPetTile {
@@ -154,7 +165,7 @@
   padding: 4%;
   padding-bottom: 8%;
   padding-top: 4%;
-  outline: #FBB ridge thick;
+  outline: #e3e971 ridge thick;
   transition: 0.75s;
   opacity: 1;
   overflow-wrap: break-word;
@@ -164,7 +175,7 @@
 .myPetTileh3 {
   font-family: 'Amatic SC', cursive;
   font-size: 55px;
-  color: #28610e;
+  color: #00e8b0;
 }
 
 .minMyPetTile {
@@ -181,7 +192,7 @@
 
 .myPetTile:hover {
   /* transform: scale(1.05); */
-  transform: skewX(-10deg);
+  transform: skewX(-4deg);
 }
 
 .loginDiv {
@@ -197,8 +208,8 @@
   font-color: #1c3875
 }
 
-.loginHeader {
-  /* background-color: #591b69; */
+.signupHeader {
+  background-color: #591b69;
   background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
   color: #FF8E53;
   font-family: 'Gloria Hallelujah', cursive;
@@ -208,5 +219,79 @@
   text-decoration: none;
   display: inline;
   font-size: 45px;
+  box-shadow: 0 6px 10px 6px rgba(255, 142, 83, 0.72);
+}
+
+.signupPlaceholders {
+  font-size: 35px;
+  font-family: 'Gloria Hallelujah', cursive;
+  background: -webkit-linear-gradient(#fba2a2, #d15bc6, #663cbf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.signupButton {
+  background-color: #591b69;
+  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
+  color: #FF8E53;
+  font-family: 'Gloria Hallelujah', cursive;
+  padding: 22px 13px;
+  margin-top: 12px;
+  margin-left: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 22px;
   box-shadow: 0 4px 6px 3px rgba(255, 142, 83, 0.72);
+  border-radius: 20px;
+  border: 26;
+  height: 65px;
+}
+
+.signinDiv {
+  margin-top: 105px;
+  padding: 12px 13px;
+  box-shadow: 0 4px 6px 0px rgba(112, 23, 173, 0.72);
+}
+
+.signinHeader {
+  background-color: #FF8E53;
+  background: linear-gradient(45deg, #ff6253 30%, #b539b0 90%);
+  color: #591b69;
+  font-family: 'Gloria Hallelujah', cursive;
+  padding: 12px 13px;
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 45px;
+  box-shadow: 0 6px 10px 6px rgba(112, 23, 173, 0.72);
+}
+
+.signinPlaceholders {
+  font-size: 35px;
+  font-family: 'Gloria Hallelujah', cursive;
+  background: -webkit-linear-gradient(#663cbf, #d15bc6, #fba2a2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.signinButton {
+  background-color: #FF8E53;
+  background: linear-gradient(45deg, #ff6253 30%, #b539b0 90%);
+  color: #591b69;
+  font-family: 'Gloria Hallelujah', cursive;
+  padding: 22px 13px;
+  margin-top: 12px;
+  margin-left: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 22px;
+  box-shadow: 0 6px 10px 6px rgba(112, 23, 173, 0.72);
+  border-radius: 20px;
+  border: 26;
+  height: 65px;
 }
