@@ -115,6 +115,7 @@
   outline: #28610e double thick;
   transition: 0.75s;
   opacity: 1;
+  border: none;
   overflow-wrap: break-word;
   padding-left: 4px;
 }
