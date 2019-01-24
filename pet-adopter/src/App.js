@@ -98,8 +98,6 @@ class App extends React.Component {
     this.setState({
       adopted:!this.state.adopted
     })
-    //end goal is change the state of adopt, which will be toggled to true if you click adopt button
-    //which will then render the button to say what we WANT IT TO SAY!!!!!!!!!!!!!!!!!!!!
     console.log(userId, petId)
     const postConfig = {
       method: "PATCH",

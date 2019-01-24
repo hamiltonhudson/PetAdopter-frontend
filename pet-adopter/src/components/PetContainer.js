@@ -39,9 +39,11 @@ class PetContainer extends Component {
     }
     return (
     <div className="ui contianer">
-      <Link to="profile">
-        <p className="headerThree">My profile</p>
-      </Link>
+      <Animated animationIn="headShake" animationOut="zoomOutDown" isVisible={true}>
+        <Link to="profile">
+          <p className="headerThree">My profile</p>
+        </Link>
+      </Animated>
       <h1 className="headerOne">Welcome {this.props.currentUser.name}</h1>
       <Animated animationIn="tada" animationOut="flash" isVisible={true}>
         <h1 className="headerTwo"> Pets </h1>

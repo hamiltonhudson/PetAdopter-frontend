@@ -112,7 +112,7 @@
   padding: 4%;
   padding-bottom: 8%;
   padding-top: 4%;
-  outline: #28610e dashed thick;
+  outline: #28610e double thick;
   transition: 0.75s;
   opacity: 1;
   overflow-wrap: break-word;
@@ -138,7 +138,49 @@
 }
 
 .petTile:hover {
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
+  transform: skewX(-10deg);
+}
+
+.myPetTile {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center 90%;
+  float: left;
+  margin: 1%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  padding: 4%;
+  padding-bottom: 8%;
+  padding-top: 4%;
+  outline: #FBB ridge thick;
+  transition: 0.75s;
+  opacity: 1;
+  overflow-wrap: break-word;
+  padding-left: 4px;
+}
+
+.myPetTileh3 {
+  font-family: 'Amatic SC', cursive;
+  font-size: 55px;
+  color: #28610e;
+}
+
+.minMyPetTile {
+  width: 250px;
+  height: 250px;
+  background-size: cover;
+}
+
+.maxMyPetTile {
+  background-size: cover;
+  width: 500px;
+  height: 500px;
+}
+
+.myPetTile:hover {
+  /* transform: scale(1.05); */
+  transform: skewX(-10deg);
 }
 
 .loginDiv {
