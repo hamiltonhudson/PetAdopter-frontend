@@ -55,8 +55,11 @@ class App extends React.Component {
       .then(r => r.json())
       .then(petMatch => {
         let foundPet = this.state.myPets.find(pet => pet.pet_id === petId)
-        console.log(foundPet)
-        console.log(this.state.myPets)
+        let pet = this.state.pets.find(pet => pet.id === petId)
+        console.log('pet', pet)
+        window.alert(`${pet.name} has been added to your pets  😊❣️`)
+        console.log('foundPet', foundPet)
+        console.log('this.state.myPets', this.state.myPets)
         if (!foundPet) {
           this.setState({
             myPets: [...this.state.myPets, petMatch]
