@@ -44,7 +44,7 @@ class PetContainer extends Component {
       </Link>
       <h1 className="headerOne">Welcome {this.props.currentUser.name}</h1>
       <Animated animationIn="tada" animationOut="flash" isVisible={true}>
-        <h1 className="headerTwo"> Pets </h1>
+        <h1 className="headerTwo"> ♡ Pets! ♡ </h1>
       </Animated>
       <div className="ui header">
         <select className="ui dropdown" onChange={this.props.handleSorted}>
