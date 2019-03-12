@@ -7,6 +7,8 @@ import ProfileContainer from "./components/ProfileContainer";
 
 const apiMatchesAddress = 'http://localhost:3000/api/v1/matches'
 const userAdoptAddress = 'http://localhost:3000/api/v1/users'
+const petAdoptAddress = 'http://localhost:3000/api/v1/pets'
+
 
 class App extends React.Component {
   state = {
@@ -54,6 +56,7 @@ class App extends React.Component {
     fetch(apiMatchesAddress, postConfig)
       .then(r => r.json())
       .then(petMatch => {
+        console.log("petMatch in app", petMatch)
         let foundPet = this.state.myPets.find(pet => pet.pet_id === petId)
         let pet = this.state.pets.find(pet => pet.id === petId)
         console.log('pet', pet)
@@ -98,9 +101,9 @@ class App extends React.Component {
   }
 
   handleAdopt = (userId, petId) => {
-    this.setState({
-      adopted:!this.state.adopted
-    })
+    // this.setState({
+    //   adopted:!this.state.adopted
+    // })
     console.log(userId, petId)
     const postConfig = {
       method: "PATCH",
@@ -109,19 +112,22 @@ class App extends React.Component {
         "Accept": "application/json"
       },
       body: JSON.stringify({
-          pet_id: petId
+          adopted: true,
+          owner_id: userId
       })
     }
-    fetch(`${userAdoptAddress}/${userId}`, postConfig)
+    fetch(`${petAdoptAddress}/${petId}`, postConfig)
       .then(r => r.json())
       // debugger
-      .then(data => {
-        let adoptedPet = this.state.myPets.find(pet => pet.pet_id === data.pet_id)
+      .then(petData => {
+        // let adoptedPet = this.state.myPets.find(pet => pet.pet_id === data.pet_id)
+        let adoptedPet = petData
         console.log(adoptedPet)
         let index = this.state.myPets.indexOf(adoptedPet)
         // console.log(this.state, "inside patch");
         this.setState({
-          petObj:adoptedPet
+          petObj:adoptedPet,
+          adopted: `${adoptedPet.adopted}`
         })
       })
     }
@@ -130,7 +136,9 @@ class App extends React.Component {
     console.log(this.state.myPets)
     return <>
       <Route path='/' exact render={()=> <Dashboard animalCheck={this.state.animalCheck} checkboxClick={this.state.checkboxClick} pets={this.state.pets} handleFilter={this.handleFilter} handleSorted={this.handleSorted} currentUser={this.state.currentUser} handleMyPets={this.handleMyPets} />}/>
-      <Route path='/signin' component={Signin }/>
+      <Route path='/signin' render={() => <Signin setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} myPets={this.state.myPets}/>}
+      />
+      {/* <Route path='/signin' component={Signin }/> */}
       <Route path='/signup' render={() => <Signup setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} />}
       />
       <Route path='/profile' render={() => <ProfileContainer petObj={this.state.petObj} pets={this.state.pets} myPets={this.state.myPets} currentUser={this.state.currentUser} adopted={this.state.adopted} handleAdopt={this.handleAdopt}/>}

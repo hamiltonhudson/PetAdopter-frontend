@@ -14,6 +14,7 @@ class MyPets extends React.Component {
 
   render() {
     console.log(this.props.adopted)
+    console.log("petObj in myPets", this.props.petObj)
     let foundPet = this.props.pets.find(pet => this.props.pet_id === pet.id)
 
       if(!this.state.clicked){
