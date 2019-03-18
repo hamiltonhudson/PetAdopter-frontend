@@ -6,9 +6,8 @@ import { Route } from 'react-router-dom';
 import ProfileContainer from "./components/ProfileContainer";
 
 const apiMatchesAddress = 'http://localhost:3000/api/v1/matches'
-const userAdoptAddress = 'http://localhost:3000/api/v1/users'
-const petAdoptAddress = 'http://localhost:3000/api/v1/pets'
-
+const apiUsersAddress = 'http://localhost:3000/api/v1/users'
+const apiPetsAddress = 'http://localhost:3000/api/v1/pets'
 
 class App extends React.Component {
   state = {
@@ -19,65 +18,34 @@ class App extends React.Component {
     checkboxClick: false,
     animalCheck: "",
     adopted: false,
-    petObj:""
+    petObj:"",
+    myAdoptedPets: []
   }
 
   componentDidMount() {
     fetch('http://localhost:3000/api/v1/pets')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          pets: data
-        })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        pets: data
       })
+    })
   }
 
   setCurrentUser = userObj => this.setState({currentUser:userObj},()=>{
-
   })
 
-  // handleClick = () => {
-  //   this.setState({
-  //     loggedIn:!this.state.loggedIn
-  //   })
-  // }
-
-  handleMyPets = (userId, petId) => {
-    const postConfig = {
-    	method:"POST",
-    	headers:{"Content-type":"application/json", "Accept": "application/json"},
-      body:JSON.stringify(
-        {match:
-          {pet_id:petId,
-            user_id:userId}
-          })
-    }
-
-    fetch(apiMatchesAddress, postConfig)
-      .then(r => r.json())
-      .then(petMatch => {
-        console.log("petMatch in app", petMatch)
-        let foundPet = this.state.myPets.find(pet => pet.pet_id === petId)
-        let pet = this.state.pets.find(pet => pet.id === petId)
-        console.log('pet', pet)
-        window.alert(`${pet.name} has been added to your pets  😊❣️`)
-        console.log('foundPet', foundPet)
-        console.log('this.state.myPets', this.state.myPets)
-        if (!foundPet) {
-          this.setState({
-            myPets: [...this.state.myPets, petMatch]
-          })
-        }
-      })
-  }
+  setMyPets = (currentUserPets, usersAdoptedPets) => this.setState({myPets:currentUserPets, myAdoptedPets:usersAdoptedPets},()=>{
+  })
 
   handleSorted = (event) => {
     let sortedNameCopyPets = [...this.state.pets].sort((a,b) => (a.name.localeCompare(b.name)))
     let sortedIdCopyPets = [...this.state.pets].sort((a,b) => (a.id-b.id))
     if (event.target.value === "name"){
       this.setState({
-      pets:sortedNameCopyPets
-      })}
+        pets:sortedNameCopyPets
+      })
+    }
     else if (event.target.value === "all"){
       this.setState({
       pets:sortedIdCopyPets
@@ -100,11 +68,42 @@ class App extends React.Component {
     }
   }
 
+  resetCheckbox = () => {
+    this.setState({
+      checkboxClick: false
+      // checkboxClick:!this.state.checkboxClick
+    })
+  }
+
+  handleMyPets = (userId, petId) => {
+    const postConfig = {
+    	method:"POST",
+    	headers:{"Content-type":"application/json", "Accept": "application/json"},
+      body:JSON.stringify(
+        {match:
+          {user_id:userId,
+            pet_id:petId}
+        }
+      )
+    }
+    fetch(apiMatchesAddress, postConfig)
+    .then(r => r.json())
+    .then(petMatch => {
+      let foundPet = this.state.myPets.find(pet => pet.pet_id === petId)
+      let pet = this.state.pets.find(pet => pet.id === petId)
+      window.alert(`${pet.name} has been added to your pets  😊❣️`)
+      if (!foundPet) {
+        this.setState({
+          myPets: [...this.state.myPets, petMatch]
+        })
+      }
+    })
+  }
+
   handleAdopt = (userId, petId) => {
-    // this.setState({
-    //   adopted:!this.state.adopted
-    // })
-    console.log(userId, petId)
+    this.setState({
+      adopted:!this.state.adopted
+    })
     const postConfig = {
       method: "PATCH",
       headers: {
@@ -112,40 +111,80 @@ class App extends React.Component {
         "Accept": "application/json"
       },
       body: JSON.stringify({
-          adopted: true,
-          owner_id: userId
+        adopted: true,
+        owner_id: userId
       })
     }
-    fetch(`${petAdoptAddress}/${petId}`, postConfig)
-      .then(r => r.json())
-      // debugger
-      .then(petData => {
-        // let adoptedPet = this.state.myPets.find(pet => pet.pet_id === data.pet_id)
-        let adoptedPet = petData
-        console.log(adoptedPet)
-        let index = this.state.myPets.indexOf(adoptedPet)
-        // console.log(this.state, "inside patch");
-        this.setState({
-          petObj:adoptedPet,
-          adopted: `${adoptedPet.adopted}`
-        })
+    fetch(`${apiPetsAddress}/${petId}`, postConfig)
+    .then(r => r.json())
+    // debugger
+    .then(petData => {
+      let pets = petData
+      // let adoptedPet = this.state.myPets.find(pet => pet.pet_id === data.pet_id)
+      let adoptedPet = pets.find(pet => pet.id === petId)
+      let index = this.state.myPets.indexOf(adoptedPet)
+      // console.log(this.state, "inside patch");
+      let usersAdoptedPets = pets.filter(pet => pet.owner_id === this.state.currentUser.id)
+      this.setState({
+        pets: pets,
+        petObj: adoptedPet,
+        // currentUser: user
+        // adopted: `${adoptedPet.adopted}`
+        myAdoptedPets: usersAdoptedPets
       })
-    }
+      console.log("myAdoptedPets", this.state.myAdoptedPets)
+      console.log("pets in handleAdopt", pets)
+    })
+     // fetch(`${apiUsersAddress}/${userId}`)
+     // .then(r => r.json())
+     // .then(userData => {
+     //   console.log("userData", userData)
+     //   const user = userData
+     //   const usersAdoptedPets = userData.pets.filter(pet => pet.owner_id === userData.id)
+     //   this.setCurrentUser(userData)
+     //   this.setState({
+     //     // currentUser: userData,
+     //     myAdoptedPets: usersAdoptedPets
+     //   })
+     //   console.log("usersAdoptedPets", this.state.myAdoptedPets)
+     // })
+  }
+
+  removeFromMyPets = (matchId) => {
+    console.log(matchId)
+    fetch(`http://localhost:3000/api/v1/matches/${matchId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        id: `${matchId}`
+      })
+    })
+    .then(r => r.json())
+    .then(response => {
+      console.log(response)
+      this.setState({
+      myPets: response
+      })
+    })
+  }
 
   render() {
-    console.log(this.state.myPets)
     return <>
-      <Route path='/' exact render={()=> <Dashboard animalCheck={this.state.animalCheck} checkboxClick={this.state.checkboxClick} pets={this.state.pets} handleFilter={this.handleFilter} handleSorted={this.handleSorted} currentUser={this.state.currentUser} handleMyPets={this.handleMyPets} />}/>
-      <Route path='/signin' render={() => <Signin setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} myPets={this.state.myPets}/>}
+      <Route path='/' exact render={()=> <Dashboard animalCheck={this.state.animalCheck} checkboxClick={this.state.checkboxClick} pets={this.state.pets} handleFilter={this.handleFilter} handleSorted={this.handleSorted}
+        currentUser={this.state.currentUser} handleMyPets={this.handleMyPets} myPets={this.state.myPets} myAdoptedPets={this.state.myAdoptedPets} removeFromMyPets={this.removeFromMyPets} />}
       />
-      {/* <Route path='/signin' component={Signin }/> */}
+      <Route path='/signin' render={() => <Signin setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} setMyPets={this.setMyPets} myPets={this.state.myPets}/>}
+      />
       <Route path='/signup' render={() => <Signup setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} />}
       />
-      <Route path='/profile' render={() => <ProfileContainer petObj={this.state.petObj} pets={this.state.pets} myPets={this.state.myPets} currentUser={this.state.currentUser} adopted={this.state.adopted} handleAdopt={this.handleAdopt}/>}
+      <Route path='/profile' render={() => <ProfileContainer petObj={this.state.petObj} pets={this.state.pets} myPets={this.state.myPets} currentUser={this.state.currentUser} adopted={this.state.adopted} handleAdopt={this.handleAdopt}
+        myAdoptedPets={this.state.myAdoptedPets} resetCheckbox={this.resetCheckbox} removeFromMyPets={this.removeFromMyPets}/>}
       />
     </>
-
   }
-}
 
+}
 export default App;

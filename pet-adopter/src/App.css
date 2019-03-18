@@ -295,3 +295,28 @@
   border: 26;
   height: 65px;
 }
+
+#adoptedPets {
+  /* vertical-align: right; */
+  text-align: left;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 25px;
+  color: #ff6b00;
+  text-shadow: 1.5px 1.5px #0d8568; ;
+  padding-top: 1px;
+}
+
+.adoptedPetsButton {
+  /* font-family: 'Gloria Hallelujah', cursive; */
+  color: #c98de6;
+  font-family: 'Miniver', cursive;
+  font-size: 25px;
+}
+
+.adoptedPetsButton:hover {
+  color: #72f6a3;
+}
+
+.adopted {
+  font-family: 'Knewave', cursive;
+}

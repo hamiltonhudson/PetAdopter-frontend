@@ -30,21 +30,12 @@ class Signup extends React.Component {
         }
       })
     }
-
     fetch(apiUsersAddress,postConfig)
-      .then(r=>r.json())
-      .then(userObj => this.props.setCurrentUser(userObj))
-    // console.log(event.target.value)
-    // event.preventDefault()
-    // this.setState({
-    //   name: '',
-    //   email: ''
-    // })
-    // this.props.history.push('/', {userId: 1})
+    .then(r=>r.json())
+    .then(userObj => this.props.setCurrentUser(userObj))
   }
 
   render() {
-    console.log(this.props.currentUser)
     const signUpForm =
       <div className="loginDiv">
         <h1 className="signupHeader">Sign Up To Save Pets!</h1>

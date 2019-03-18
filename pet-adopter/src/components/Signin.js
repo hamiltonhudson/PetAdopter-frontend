@@ -8,15 +8,13 @@ class Signin extends React.Component {
   state = {
     name: '',
     email: '',
-    myPets: this.props.myPets
+    // myPets: this.props.myPets
   }
 
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
-    console.log(event.target.value)
-    console.log("this.state", this.state)
   }
 
   handleSubmit = (event) => {
@@ -24,20 +22,13 @@ class Signin extends React.Component {
     fetch(apiUsersAddress)
     .then(response => response.json())
     .then(userData => {
-      console.log(userData)
       const userObj = userData.find(user => user.name.toLowerCase() === this.state.name.toLowerCase() && user.email === this.state.email)
-      // const userObj = userData.find(user => user.email === this.state.email)
-      console.log(userObj)
+      const usersAdoptedPets = userObj.pets.filter(pet => pet.owner_id === userObj.id)
       this.props.setCurrentUser(userObj)
-      this.setState({
-        myPets: this.props.userObj.pets
-      })
+      this.props.setMyPets(userObj.matches, usersAdoptedPets)
     })
-    // this.setState({
-    //   name: '',
-    //   email: ''
-    // })
   }
+
   render() {
     const signInForm =
       <div className="signinDiv">
@@ -64,7 +55,7 @@ class Signin extends React.Component {
           </form>
         </div>
       </div>
-    return this.props.currentUser ? <Redirect to="/" myPets={this.state.myPets} /> : signInForm;
+    return this.props.currentUser ? <Redirect to="/" /> : signInForm;
   }
 }
 

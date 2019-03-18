@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddOrRemovePet from './AddOrRemovePet'
 
 class PetCard extends Component {
 
@@ -7,12 +8,13 @@ class PetCard extends Component {
   }
 
   handleClick = () => {
-      this.setState({
-        clicked:!this.state.clicked
-      })
-    }
+    this.setState({
+      clicked:!this.state.clicked
+    })
+  }
 
-    show = () => {
+
+  show = () => {
     if(this.state.clicked){
       return(
         <div className="petContainer">
@@ -25,7 +27,8 @@ class PetCard extends Component {
               <h3> Age:{this.props.pet.age}</h3>
               <h3> Breed: {this.props.pet.breed}</h3>
               <button className= "ui button" onClick={this.handleClick}> Back </button>
-              <button onClick={()=>this.props.handleMyPets(this.props.pet.id, this.props.currentUser.id)} className= "ui button" >Add To My Pets</button>
+              {this.props.handleAdoptedStatus(this.props.currentUser.id, this.props.pet.id)}
+              <AddOrRemovePet currentUser={this.props.currentUser} pet={this.props.pet} petId={this.props.pet.id} pets={this.props.pets} myPets={this.props.myPets} myAdoptedPets={this.props.myAdoptedPets} handleMyPets={this.props.handleMyPets} removeFromMyPets={this.props.removeFromMyPets}/>
             </div>
           </div>
         </div>
@@ -38,7 +41,8 @@ class PetCard extends Component {
               <h1 className="petTileh3">{this.props.pet.name}</h1>
               <img className="ui inline image" src={(this.props.pet.photo)} />
               <button className="ui button" onClick={this.handleClick}> View More Details! </button>
-              <button className="ui button" onClick={()=>this.props.handleMyPets(this.props.currentUser.id, this.props.pet.id)}>Add To My Pets</button>
+              {this.props.handleAdoptedStatus(this.props.currentUser.id, this.props.pet.id)}
+              <AddOrRemovePet currentUser={this.props.currentUser} pet={this.props.pet} petId={this.props.pet.id} pets={this.props.pets} myPets={this.props.myPets} myAdoptedPets={this.props.myAdoptedPets} handleMyPets={this.props.handleMyPets} removeFromMyPets={this.props.removeFromMyPets}/>
             </div>
           </div>
       </div>
