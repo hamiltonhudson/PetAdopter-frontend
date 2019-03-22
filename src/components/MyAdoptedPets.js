@@ -38,8 +38,6 @@ class MyAdoptedPets extends React.Component {
   }
 
   render() {
-    // console.log(this.props.foundPet)
-    console.log(this.props.myAdoptedPets)
     return (
       <Fragment>
         {this.showAdopted()}

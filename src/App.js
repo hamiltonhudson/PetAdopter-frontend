@@ -123,35 +123,16 @@ class App extends React.Component {
       // let adoptedPet = this.state.myPets.find(pet => pet.pet_id === data.pet_id)
       let adoptedPet = pets.find(pet => pet.id === petId)
       let index = this.state.myPets.indexOf(adoptedPet)
-      // console.log(this.state, "inside patch");
       let usersAdoptedPets = pets.filter(pet => pet.owner_id === this.state.currentUser.id)
       this.setState({
         pets: pets,
         petObj: adoptedPet,
-        // currentUser: user
-        // adopted: `${adoptedPet.adopted}`
         myAdoptedPets: usersAdoptedPets
       })
-      console.log("myAdoptedPets", this.state.myAdoptedPets)
-      console.log("pets in handleAdopt", pets)
     })
-     // fetch(`${apiUsersAddress}/${userId}`)
-     // .then(r => r.json())
-     // .then(userData => {
-     //   console.log("userData", userData)
-     //   const user = userData
-     //   const usersAdoptedPets = userData.pets.filter(pet => pet.owner_id === userData.id)
-     //   this.setCurrentUser(userData)
-     //   this.setState({
-     //     // currentUser: userData,
-     //     myAdoptedPets: usersAdoptedPets
-     //   })
-     //   console.log("usersAdoptedPets", this.state.myAdoptedPets)
-     // })
   }
 
   removeFromMyPets = (matchId) => {
-    console.log(matchId)
     fetch(`http://localhost:3000/api/v1/matches/${matchId}`, {
       method: 'DELETE',
       headers: {
@@ -164,7 +145,6 @@ class App extends React.Component {
     })
     .then(r => r.json())
     .then(response => {
-      console.log(response)
       this.setState({
       myPets: response
       })

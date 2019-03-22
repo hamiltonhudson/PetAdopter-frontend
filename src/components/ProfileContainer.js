@@ -6,19 +6,16 @@ import {Link} from 'react-router-dom';
 class ProfileContainer extends React.Component {
 
   handleAdoptedStatus = (userId, foundPet) => {
-    // console.log(foundPet)
-    // console.log(this.props.adopted)
     if (foundPet.adopted) {
       return (
         <div>
-          <p className="adopted" style={{"font-size" : "20px"}}>Adopted! </p>
+          <p className="adopted" style={{"fontSize" : "20px"}}>Adopted! </p>
         </div>
       )
     }
   }
 
-        // render() {
-        //   console.log(this.props.myPets)
+
   myPetCards = () => {
     return(
       <div className="ui container">
@@ -49,7 +46,7 @@ class ProfileContainer extends React.Component {
       </div>
     )
   }
-    // }
+
   render() {
     return (
       <div>

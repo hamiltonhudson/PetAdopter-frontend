@@ -10,7 +10,7 @@ class PetContainer extends Component {
     if (pet.adopted === true)  {
       return (
         <div>
-          <p className="adopted" style={{"font-size" : "20px"}}>Adopted!</p>
+          <p className="adopted" style={{"fontSize" : "20px"}}>Adopted!</p>
         </div>
       )
     }

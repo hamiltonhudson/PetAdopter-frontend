@@ -13,16 +13,6 @@ class MyPets extends React.Component {
     })
   }
 
-  // handleAdoptedStatus = (userId, foundPet) => {
-  //   console.log(foundPet)
-  //   console.log(this.props.adopted)
-  //   if (this.props.petObj.adopted && this.props.petObj.id === foundPet.id) {
-  //     return <button className= "ui button">Adopted!</button>
-  //   } else {
-  //     return <button className="ui button" id="adopt-btn" onClick={()=>this.props.handleAdopt(userId, foundPet.id)}>Adopt</button>
-  //   }
-  // }
-
   render() {
     let foundPet = this.props.pets.find(pet => this.props.pet_id === pet.id)
     if(!this.state.clicked){

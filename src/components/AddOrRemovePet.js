@@ -13,10 +13,10 @@ class AddOrRemovePet extends React.Component {
       return <button className="ui button" onClick={()=>this.props.handleMyPets(userId, petId)}>Add To My Pets</button>
     }
     else if (this.props.pet.owner_id === userId && myPetMatchIds.includes(petId)) {
-      return <span className="adopted" style={{"font-size" : "12px"}} img="𝔹𝕐 𝓤 ♥️"> By You ♡ </span>
+      return <span className="adopted" style={{"fontSize" : "12px"}} img="𝔹𝕐 𝓤 ♥️"> By You ♡ </span>
     }
     else if (this.props.pet.owner_id !== userId && !myPetMatchIds.includes(petId)) {
-      return <span classNmae="adopted" style={{"font-weight" : "bold"}} img="♥️">♡</span>
+      return <span className="adopted" style={{"fontWeight" : "bold"}} img="♥️">♡</span>
     }
   }
 

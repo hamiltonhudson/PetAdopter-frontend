@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-// import { Fragment } from 'react';
 
 class MyPetsButton extends React.Component {
 
@@ -16,7 +15,7 @@ class MyPetsButton extends React.Component {
     } else if (this.props.pet.owner_id === currentUser.id) {
       return (
       <div>
-        <span className="adopted" style={{"font-size" : "12px"}} img="𝔹𝕐 𝓤 ♥️"> By You ♡ </span>
+        <span className="adopted" style={{"fontSize" : "12px"}} img="𝔹𝕐 𝓤 ♥️"> By You ♡ </span>
       </div>
       )
     } else if (pet.adopted && !this.props.myAdoptedPets.includes(pet)) {
