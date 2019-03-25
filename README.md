@@ -1,68 +1,60 @@
+# Pet Adopter Frontend README
+
+## Project Overview
+
+Pet Adopter is an app to view, save and adopt animals from local NYC shelters and adoption centers. Users can sign up and sign back in to view all available pets, with photos and details, and add pets to their “pet list”. When a user visits their pet list, they have the option to adopt any pets that they have added. If a user has a pet saved in their list and someone else adopts it, a user can obviously no longer adopt, but can remove that pet from their list, either from the main page or from their profile. Once a pet is adopted, there is no un-adopting — you are committing to save that animal! 👏🏼
+
+## Technologies Used
+
+React, Ruby on Rails (Rails API backend), Petfinder API, HTML, CSS, JSON, Semantic UI & GoogleFonts, ActiveModel Serializers, ‘dotenv-rails’ and other Ruby gems
+
+## Getting Started
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Prerequisites
+To use, clone down this repo and open with your preferred text editor. Before anything else, if you haven’t already, make sure to set up the project backend as well (link below), which will ensure you have the working usable version of Ruby/Rails installed on your machine. This project uses React and requires node package manager, so once you have it open in your local environment, from the root of the project run the following: 
 
-In the project directory, you can run:
+`npm install`
 
-### `npm start`
+terminal command to install dependencies. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Installing
+Once npm is finished installing and you’re back to a working terminal, jump over to the backend project root and run:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+`rails s`
 
-### `npm test`
+to start the server. (From the previous backend set up, should indicate successful connection to server, but to double check, navigate to http://localhost:3000 and make sure you have a “Yay! You’re on Rails!” welcome page). Back in the terminal, run:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm start`
 
-### `npm run build`
+and type “yes” or “y” when asked if you’d like to run this server on another port, at which point PetAdopter will launch in your browser. You can sign up as a new user with a name and email (and sign back in later with same info), view pets and add them to your pet list, and from your pet list, adopt some precious animals! 🐈♥🐕
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Backend Link
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+[PetAdopter-backend](https://github.com/ehamiltonhudson/PetAdopter-backend)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Demo Video
 
-### `npm run eject`
+[PetAdopter.mov](https://drive.google.com/open?id=1D7FHcEtkCZXcCac5FGkyiHY7tLE1dS-v)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Authors
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Hamilton Hudson**
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+≫ ehamiltonhudson@gmail.com<br/>
+↳ *LinkedIn*: https://www.linkedin.com/in/hamiltonhudson<br/>
+↳ *Website*: https://hamiltonhudson.myportfolio.com<br/>
+↳ *Blog*: https://ehhudson.wordpress.com<br/>
+↳ *Twitter*: https://twitter.com/HamiltonHudson
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Gabrielle  Bellini**
 
-## Learn More
+≫ gbellini90@gmail.com<br/>
+↳ *LinkedIn*: https://www.linkedin.com/in/gabrielle-bellini/<br/>
+↳ *GitHub*: https://github.com/gbellini90<br/>
+↳ *Blog*: https://medium.com/@gbellini90
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is licensed under the MIT License - see the [LICENSE.md](/LICENSE) file for details.
