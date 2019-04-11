@@ -1,31 +1,39 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import ProfileContainer from './ProfileContainer';
 
-const apiUsersAddress = 'http://localhost:3000/api/v1/users'
+const apiUsersAddress = 'http://localhost:3000/api/v1/login'
 
 class Signin extends React.Component {
+
   state = {
-    name: '',
-    email: '',
-    // myPets: this.props.myPets
+    username: '',
+    password: '',
   }
 
   handleChange = (event) => {
+    console.log(event.target.value)
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     })
   }
 
   handleSubmit = (event) => {
-    event.preventDefault()
-    fetch(apiUsersAddress)
-    .then(response => response.json())
-    .then(userData => {
-      const userObj = userData.find(user => user.name.toLowerCase() === this.state.name.toLowerCase() && user.email === this.state.email)
-      const usersAdoptedPets = userObj.pets.filter(pet => pet.owner_id === userObj.id)
-      this.props.setCurrentUser(userObj)
-      this.props.setMyPets(userObj.matches, usersAdoptedPets)
+    event.preventDefault();
+    fetch(apiUsersAddress, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.state)
+    })
+      .then(res => res.json())
+      .then(userObj => {
+        console.log(userObj)
+        localStorage.setItem('jwt', userObj.token);
+        const usersAdoptedPets = userObj.pets.filter(pet => pet.owner_id === userObj.id)
+        this.props.setCurrentUser(userObj)
+        this.props.setMyPets(userObj.matches, usersAdoptedPets)
     })
   }
 
@@ -38,15 +46,16 @@ class Signin extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <input className="signinPlaceholders"
               onChange={this.handleChange}
-              name="name"
-              value={this.state.name}
-              placeholder="name"
+              name="username"
+              value={this.state.username}
+              placeholder="username"
             />
             <input className="signinPlaceholders"
               onChange={this.handleChange}
-              name="email"
-              value={this.state.email}
-              placeholder="email"
+              name="password"
+              value={this.state.password}
+              placeholder="password"
+              type="password"
             />
             <input
               type="submit"

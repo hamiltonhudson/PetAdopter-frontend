@@ -20,6 +20,7 @@ class ProfileContainer extends React.Component {
     return(
       <div className="ui container">
         <Link to='/' className="headerThree" onClick={this.props.resetCheckbox}>Back To All Pets</Link>
+        <Link to='/' className="headerThree" onClick={this.props.logout}>Logout</Link>
         <h2 className="headerFour">{this.props.currentUser.name}'s Pet List </h2>
         <br/>
         <div className="ui container">

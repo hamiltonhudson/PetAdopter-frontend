@@ -3,7 +3,22 @@ import {Link} from "react-router-dom";
 import { Animated } from 'react-animated-css';
 import PetCard from './PetCard';
 
+const apiPetsAddress = 'http://localhost:3000/api/v1/pets'
+
 class PetContainer extends Component {
+
+  componentDidMount = () => {
+    fetch(apiPetsAddress, {
+      method: "GET",
+      headers: {
+        "Authorization": localStorage.getItem('jwt')
+      }
+    })
+    .then(response => response.json())
+    .then(petData => {
+      this.props.setAllPets(petData)
+    })
+  }
 
   handleAdoptedStatus = (userId, petId) => {
     let pet = this.props.pets.find(pet => pet.id === petId)

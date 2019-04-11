@@ -12,6 +12,7 @@ class Dashboard extends Component {
           this.props.currentUser ?
             <PetContainer pets={this.props.pets}
               currentUser={this.props.currentUser}
+              setAllPets={this.props.setAllPets}
               animalCheck={this.props.animalCheck}
               checkboxClick={this.props.checkboxClick}
               handleFilter={this.props.handleFilter}
@@ -20,6 +21,7 @@ class Dashboard extends Component {
               myAdoptedPets={this.props.myAdoptedPets}
               handleMyPets={this.props.handleMyPets}
               removeFromMyPets={this.props.removeFromMyPets}
+              logout={this.props.logout}
             />
           :
           <Welcome />

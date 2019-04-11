@@ -6,8 +6,9 @@ const apiUsersAddress = 'http://localhost:3000/api/v1/users'
 
 class Signup extends React.Component {
   state = {
+    username: '',
     name: '',
-    email: ''
+    password: ''
   }
 
   handleChange = (event) => {
@@ -25,14 +26,18 @@ class Signup extends React.Component {
       },
       body: JSON.stringify({
         user: {
+          username: this.state.username,
           name: this.state.name,
-          email:this.state.email
+          password:this.state.password
         }
       })
     }
-    fetch(apiUsersAddress,postConfig)
-    .then(r=>r.json())
-    .then(userObj => this.props.setCurrentUser(userObj))
+    fetch(apiUsersAddress, postConfig)
+    .then(r => r.json())
+    .then(userObj => {
+      localStorage.setItem('jwt', userObj.token)
+      this.props.setCurrentUser(userObj)
+    })
   }
 
   render() {
@@ -50,9 +55,16 @@ class Signup extends React.Component {
             />
             <input className="signupPlaceholders"
               onChange={this.handleChange}
-              name="email"
-              value={this.state.email}
-              placeholder="email"
+              name="username"
+              value={this.state.username}
+              placeholder="username"
+            />
+            <input className="signupPlaceholders"
+              onChange={this.handleChange}
+              name="password"
+              value={this.state.password}
+              placeholder="password"
+              type="password"
             />
             <input onClick={this.props.handleClick}
               type="submit"

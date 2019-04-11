@@ -2,7 +2,7 @@ import React from 'react';
 import Dashboard from './Dashboard';
 import Signin from './components/Signin';
 import Signup from './components/Signup';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import ProfileContainer from "./components/ProfileContainer";
 
 const apiMatchesAddress = 'http://localhost:3000/api/v1/matches'
@@ -22,17 +22,20 @@ class App extends React.Component {
     myAdoptedPets: []
   }
 
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/pets')
-    .then(response => response.json())
-    .then(data => {
-      this.setState({
-        pets: data
-      })
-    })
-  }
+  // componentDidMount() {
+  //   fetch(apiPetsAddress)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     this.setState({
+  //       pets: data
+  //     })
+  //   })
+  // }
 
   setCurrentUser = userObj => this.setState({currentUser:userObj},()=>{
+  })
+
+  setAllPets = (petData) => this.setState({pets: petData}, () => {
   })
 
   setMyPets = (currentUserPets, usersAdoptedPets) => this.setState({myPets:currentUserPets, myAdoptedPets:usersAdoptedPets},()=>{
@@ -78,7 +81,11 @@ class App extends React.Component {
   handleMyPets = (userId, petId) => {
     const postConfig = {
     	method:"POST",
-    	headers:{"Content-type":"application/json", "Accept": "application/json"},
+    	headers:{
+        "Content-type":"application/json",
+        "Accept": "application/json",
+        "Authorization": localStorage.getItem('jwt')
+      },
       body:JSON.stringify(
         {match:
           {user_id:userId,
@@ -108,7 +115,8 @@ class App extends React.Component {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "Authorization": localStorage.getItem('jwt')
       },
       body: JSON.stringify({
         adopted: true,
@@ -137,7 +145,8 @@ class App extends React.Component {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Authorization': localStorage.getItem('jwt')
       },
       body: JSON.stringify({
         id: `${matchId}`
@@ -151,20 +160,29 @@ class App extends React.Component {
     })
   }
 
+
+  logout = () => {
+    localStorage.clear()
+    this.setState({
+      currentUser: null,
+      pets: [],
+    })
+  }
+
   render() {
     return <>
       <Route path='/' exact render={()=> <Dashboard animalCheck={this.state.animalCheck} checkboxClick={this.state.checkboxClick} pets={this.state.pets} handleFilter={this.handleFilter} handleSorted={this.handleSorted}
-        currentUser={this.state.currentUser} handleMyPets={this.handleMyPets} myPets={this.state.myPets} myAdoptedPets={this.state.myAdoptedPets} removeFromMyPets={this.removeFromMyPets} />}
+        currentUser={this.state.currentUser} handleMyPets={this.handleMyPets} myPets={this.state.myPets} myAdoptedPets={this.state.myAdoptedPets} removeFromMyPets={this.removeFromMyPets} setAllPets={this.setAllPets} logout={this.logout}/>}
       />
       <Route path='/signin' render={() => <Signin setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} setMyPets={this.setMyPets} myPets={this.state.myPets}/>}
       />
       <Route path='/signup' render={() => <Signup setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} />}
       />
-      <Route path='/profile' render={() => <ProfileContainer petObj={this.state.petObj} pets={this.state.pets} myPets={this.state.myPets} currentUser={this.state.currentUser} adopted={this.state.adopted} handleAdopt={this.handleAdopt}
-        myAdoptedPets={this.state.myAdoptedPets} resetCheckbox={this.resetCheckbox} removeFromMyPets={this.removeFromMyPets}/>}
+      <Route path='/profile' render={() => <ProfileContainer currentUser={this.state.currentUser} petObj={this.state.petObj} pets={this.state.pets} myPets={this.state.myPets} setAllPets={this.setAllPets}
+        adopted={this.state.adopted} handleAdopt={this.handleAdopt} myAdoptedPets={this.state.myAdoptedPets} resetCheckbox={this.resetCheckbox} removeFromMyPets={this.removeFromMyPets}/>}
       />
     </>
   }
 
 }
-export default App;
+export default withRouter(App);
