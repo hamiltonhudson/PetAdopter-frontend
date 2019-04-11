@@ -28,7 +28,7 @@ to start the server. (From the previous backend set up, should indicate successf
 
 `npm start`
 
-and type “yes” or “y” when asked if you’d like to run this server on another port, at which point PetAdopter will launch in your browser. You can sign up as a new user with a name and email (and sign back in later with same info), view pets and add them to your pet list, and from your pet list, adopt some precious animals! 🐈♥🐕
+and type “yes” or “y” when asked if you’d like to run this server on another port, at which point PetAdopter will launch in your browser. You can sign up as a new user with a name and email (and sign back in later with same info), view pets and add them to your pet list, and from your pet list, adopt some precious animals! 🐈♥️🐕
 
 ## Backend Link
 
