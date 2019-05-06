@@ -179,7 +179,7 @@ class App extends React.Component {
       <Route path='/signup' render={() => <Signup setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} />}
       />
       <Route path='/profile' render={() => <ProfileContainer currentUser={this.state.currentUser} petObj={this.state.petObj} pets={this.state.pets} myPets={this.state.myPets} setAllPets={this.setAllPets}
-        adopted={this.state.adopted} handleAdopt={this.handleAdopt} myAdoptedPets={this.state.myAdoptedPets} resetCheckbox={this.resetCheckbox} removeFromMyPets={this.removeFromMyPets}/>}
+        adopted={this.state.adopted} handleAdopt={this.handleAdopt} myAdoptedPets={this.state.myAdoptedPets} resetCheckbox={this.resetCheckbox} removeFromMyPets={this.removeFromMyPets} logout={this.logout}/>}
       />
     </>
   }
