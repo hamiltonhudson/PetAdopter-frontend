@@ -2,6 +2,7 @@ import React from 'react';
 import MyPets from './MyPets';
 import MyAdoptedPets from './MyAdoptedPets'
 import {Link} from 'react-router-dom';
+import '../App.css'
 
 class ProfileContainer extends React.Component {
 
@@ -19,7 +20,9 @@ class ProfileContainer extends React.Component {
   myPetCards = () => {
     return(
       <div className="ui container">
+        <br/>
         <Link to='/' className="headerThree" onClick={this.props.resetCheckbox}>Back To All Pets</Link>
+        <span style={{"fontSize": "25px", "color": "#0d8568"}}> | </span>
         <Link to='/' className="headerThree" onClick={this.props.logout}>Logout</Link>
         <h2 className="headerFour">{this.props.currentUser.name}'s Pet List </h2>
         <br/>
