@@ -1,10 +1,23 @@
+html, body {
+  background-color: #5f6d87;
+  text-align: center;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 10s linear;
-  height: 40vmin;
+  animation: rollIn;
+  animation-duration: 3s;
+  /* animation-delay: 1s; */
+  animation-iteration-count: 5;
+}
+
+.out {
+  animation: rollOut;
+  animation-duration: 3s;
+  animation-delay: 10s;
 }
 
 .App-header {
@@ -56,6 +69,128 @@
   }
 }
 
+
+.login {
+  margin-top: 25px;
+  padding: 12px 13px;
+  font-size: 25px;
+  font-color: #1c3875;
+}
+
+.signupDiv {
+  margin-top: 105px;
+  padding: 12px 13px;
+  /* box-shadow: 0 4px 6px 0px rgba(255, 142, 83, 0.72); */
+}
+
+.signupHeader {
+  background-color: #591b69;
+  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
+  color: #FF8E53;
+  font-family: 'Knewave', cursive;
+  font-size: 50px;
+  font-weight: 100;
+  padding: 12px 13px;
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 10px 6px rgba(255, 142, 83, 0.72);
+}
+
+.signupPlaceholders {
+  text-align: center;
+  margin: 30px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  font-family: 'Knewave', cursive;
+  font-size: 30px;
+  font-weight: 100;
+  border-width: 10px;
+  border: none;
+  /* border-bottom: 4px inset #667288; */
+  border-bottom: 1px inset rgba(246, 198, 172, 0.65);
+  display: inline;
+  background: -webkit-linear-gradient(#fba2a2, #d15bc6, #663cbf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.signupButton {
+  background-color: #591b69;
+  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
+  color: #FF8E53;
+  font-family: 'Knewave', cursive;
+  font-size: 22px;
+  font-weight: 100;
+  padding: 2px 13px;
+  margin-top: 12px;
+  margin-left: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 6px 3px rgba(255, 142, 83, 0.72);
+  border-radius: 20px;
+  border: 26;
+  height: 65px;
+}
+
+
+.signinDiv {
+  margin-top: 105px;
+  padding: 12px 13px;
+  /* box-shadow: 0 4px 6px 0px rgba(112, 23, 173, 0.72); */
+}
+
+.signinHeader {
+  background-color: #FF8E53;
+  background: linear-gradient(45deg, #ff6253 30%, #b539b0 90%);
+  color: #591b69;
+  font-family: 'Knewave', cursive;
+  font-size: 50px;
+  font-weight: 100;
+  padding: 12px 13px;
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 10px 6px rgba(112, 23, 173, 0.72);
+}
+
+.signinPlaceholders {
+  text-align: center;
+  margin: 30px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  font-family: 'Knewave', cursive;
+  font-size: 30px;
+  font-weight: 100;
+  border-width: 10px;
+  border: none;
+  /* border-bottom: 4px inset #667288; */
+  border-bottom: 1.5px inset rgba(161, 114, 194, 0.91);
+  display: inline;
+  background: -webkit-linear-gradient(#663cbf, #d15bc6, #fba2a2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.signinButton {
+  background-color: #FF8E53;
+  background: linear-gradient(45deg, #ff6253 30%, #b539b0 90%);
+  color: #591b69;
+  font-family: 'Knewave', cursive;
+  font-size: 22px;
+  font-weight: 100;
+  padding: 2px 13px;
+  margin-top: 12px;
+  margin-left: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 6px 10px 6px rgba(112, 23, 173, 0.72);
+  border-radius: 20px;
+  border: 26;
+  height: 65px;
+}
+
+
 .headerOne {
   font-family: 'Gloria Hallelujah', cursive;
   color: #31aaba;
@@ -106,14 +241,19 @@
 }
 
 .petContainer {
+  display: grid;
+  justify-content: center;
+  /* background-color: #5f6d87;
   margin-left: -4px;
   margin-bottom: 20px;
   margin-right: -4px;
-  margin-top: 2px;
+  margin-top: 2px; */
   /* margin: 0 10px 10px 0px; */
 }
 .petTile {
-  display: block;
+  /* display: block; */
+  display: inline-block;
+  justify-content: flex-start;
   background-repeat: no-repeat;
   background-position: center 90%;
   float: left;
@@ -193,107 +333,6 @@
 .myPetTile:hover {
   /* transform: scale(1.05); */
   transform: skewX(-4deg);
-}
-
-.loginDiv {
-  margin-top: 105px;
-  padding: 12px 13px;
-    box-shadow: 0 4px 6px 0px rgba(255, 142, 83, 0.72);
-}
-
-.login {
-  margin-top: 25px;
-  padding: 12px 13px;
-  font-size: 25px;
-  font-color: #1c3875
-}
-
-.signupHeader {
-  background-color: #591b69;
-  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
-  color: #FF8E53;
-  font-family: 'Gloria Hallelujah', cursive;
-  padding: 12px 13px;
-  margin-top: 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline;
-  font-size: 45px;
-  box-shadow: 0 6px 10px 6px rgba(255, 142, 83, 0.72);
-}
-
-.signupPlaceholders {
-  font-size: 35px;
-  font-family: 'Gloria Hallelujah', cursive;
-  background: -webkit-linear-gradient(#fba2a2, #d15bc6, #663cbf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.signupButton {
-  background-color: #591b69;
-  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
-  color: #FF8E53;
-  font-family: 'Gloria Hallelujah', cursive;
-  padding: 22px 13px;
-  margin-top: 12px;
-  margin-left: 12px;
-  margin-bottom: 12px;
-  text-align: center;
-  text-decoration: none;
-  display: inline;
-  font-size: 22px;
-  box-shadow: 0 4px 6px 3px rgba(255, 142, 83, 0.72);
-  border-radius: 20px;
-  border: 26;
-  height: 65px;
-}
-
-.signinDiv {
-  margin-top: 105px;
-  padding: 12px 13px;
-  box-shadow: 0 4px 6px 0px rgba(112, 23, 173, 0.72);
-}
-
-.signinHeader {
-  background-color: #FF8E53;
-  background: linear-gradient(45deg, #ff6253 30%, #b539b0 90%);
-  color: #591b69;
-  font-family: 'Gloria Hallelujah', cursive;
-  padding: 12px 13px;
-  margin-top: 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline;
-  font-size: 45px;
-  box-shadow: 0 6px 10px 6px rgba(112, 23, 173, 0.72);
-}
-
-.signinPlaceholders {
-  font-size: 35px;
-  font-family: 'Gloria Hallelujah', cursive;
-  background: -webkit-linear-gradient(#663cbf, #d15bc6, #fba2a2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.signinButton {
-  background-color: #FF8E53;
-  background: linear-gradient(45deg, #ff6253 30%, #b539b0 90%);
-  color: #591b69;
-  font-family: 'Gloria Hallelujah', cursive;
-  padding: 22px 13px;
-  margin-top: 12px;
-  margin-left: 12px;
-  margin-bottom: 12px;
-  text-align: center;
-  text-decoration: none;
-  display: inline;
-  font-size: 22px;
-  box-shadow: 0 6px 10px 6px rgba(112, 23, 173, 0.72);
-  border-radius: 20px;
-  border: 26;
-  height: 65px;
 }
 
 #adoptedPets {

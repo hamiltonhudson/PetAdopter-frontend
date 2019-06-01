@@ -42,7 +42,7 @@ class Signup extends React.Component {
 
   render() {
     const signUpForm =
-      <div className="loginDiv">
+      <div className="signupDiv">
         <h1 className="signupHeader">Sign Up To Save Pets!</h1>
         <br/><br/>
         <div className="login">
@@ -65,7 +65,7 @@ class Signup extends React.Component {
               value={this.state.password}
               placeholder="password"
               type="password"
-            />
+            /><br/><br/><br/><br/>
             <input onClick={this.props.handleClick}
               type="submit"
               className="signupButton"

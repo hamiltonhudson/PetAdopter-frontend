@@ -56,7 +56,7 @@ class Signin extends React.Component {
               value={this.state.password}
               placeholder="password"
               type="password"
-            />
+            /><br></br><br/><br/><br/>
             <input
               type="submit"
               className="signinButton"
