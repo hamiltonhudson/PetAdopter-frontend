@@ -19,12 +19,12 @@ class ProfileContainer extends React.Component {
 
   myPetCards = () => {
     return(
-      <div className="ui container">
+      <div>
         <br/>
         <Link to='/' className="allPetsLogoutLink" onClick={this.props.resetCheckbox}>Back To All Pets</Link>
         <span style={{"fontSize": "25px", "color": "#0d8568"}}> | </span>
         <Link to='/' className="allPetsLogoutLink" onClick={this.props.logout}>Logout</Link>
-        <h2 className="profileHeader">{this.props.currentUser.name}'s Pet List </h2>
+        <h1 className="profileHeader">{this.props.currentUser.name}'s Pet List </h1>
         <br/>
         <div className="ui container">
           <MyAdoptedPets myAdoptedPets={this.props.myAdoptedPets} pets={this.props.pets}/>
