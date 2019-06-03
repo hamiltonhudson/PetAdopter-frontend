@@ -1,6 +1,7 @@
 html, body {
   background-color: #5f6d87;
   text-align: center;
+  overflow: scroll;
 }
 
 .App {
@@ -10,14 +11,13 @@ html, body {
 .App-logo {
   animation: rollIn;
   animation-duration: 3s;
-  /* animation-delay: 1s; */
   animation-iteration-count: 5;
 }
 
 .out {
   animation: rollOut;
   animation-duration: 3s;
-  animation-delay: 10s;
+  animation-delay: 1s;
 }
 
 .App-header {
@@ -29,16 +29,18 @@ html, body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-shadow: 2px 2px #000000;
 }
 
 .App-link {
-  color: #72f6a3;
+  color: #c98de6;
   font-family: 'Miniver', cursive;
   font-size: 35px;
+  text-shadow: .5px .25px #ffffff;
 }
 
 .App-link:hover {
-  color: #c98de6;
+  color: #fba2a2;
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
@@ -77,67 +79,9 @@ html, body {
   font-color: #1c3875;
 }
 
-.signupDiv {
-  margin-top: 105px;
-  padding: 12px 13px;
-  /* box-shadow: 0 4px 6px 0px rgba(255, 142, 83, 0.72); */
-}
-
-.signupHeader {
-  background-color: #591b69;
-  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
-  color: #FF8E53;
-  font-family: 'Knewave', cursive;
-  font-size: 50px;
-  font-weight: 100;
-  padding: 12px 13px;
-  margin-top: 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  box-shadow: 0 6px 10px 6px rgba(255, 142, 83, 0.72);
-}
-
-.signupPlaceholders {
-  text-align: center;
-  margin: 30px;
-  margin-bottom: 20px;
-  padding-bottom: 5px;
-  font-family: 'Knewave', cursive;
-  font-size: 30px;
-  font-weight: 100;
-  border-width: 10px;
-  border: none;
-  /* border-bottom: 4px inset #667288; */
-  border-bottom: 1px inset rgba(246, 198, 172, 0.65);
-  display: inline;
-  background: -webkit-linear-gradient(#fba2a2, #d15bc6, #663cbf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.signupButton {
-  background-color: #591b69;
-  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
-  color: #FF8E53;
-  font-family: 'Knewave', cursive;
-  font-size: 22px;
-  font-weight: 100;
-  padding: 2px 13px;
-  margin-top: 12px;
-  margin-left: 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 6px 3px rgba(255, 142, 83, 0.72);
-  border-radius: 20px;
-  border: 26;
-  height: 65px;
-}
-
-
 .signinDiv {
   margin-top: 105px;
   padding: 12px 13px;
-  /* box-shadow: 0 4px 6px 0px rgba(112, 23, 173, 0.72); */
 }
 
 .signinHeader {
@@ -165,7 +109,6 @@ html, body {
   font-weight: 100;
   border-width: 10px;
   border: none;
-  /* border-bottom: 4px inset #667288; */
   border-bottom: 1.5px inset rgba(161, 114, 194, 0.91);
   display: inline;
   background: -webkit-linear-gradient(#663cbf, #d15bc6, #fba2a2);
@@ -191,171 +134,309 @@ html, body {
 }
 
 
-.headerOne {
-  font-family: 'Gloria Hallelujah', cursive;
-  color: #31aaba;
+.signupDiv {
+  margin-top: 105px;
+  padding: 12px 13px;
+}
+
+.signupHeader {
+  background-color: #591b69;
+  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
+  color: #FF8E53;
+  font-family: 'Knewave', cursive;
+  font-size: 50px;
+  font-weight: 100;
+  padding: 12px 13px;
+  margin-top: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 10px 6px rgba(255, 142, 83, 0.72);
+}
+
+.signupPlaceholders {
+  text-align: center;
+  margin: 30px;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  font-family: 'Knewave', cursive;
+  font-size: 30px;
+  font-weight: 100;
+  border-width: 10px;
+  border: none;
+  border-bottom: 1px inset rgba(246, 198, 172, 0.65);
+  display: inline;
+  background: -webkit-linear-gradient(#fba2a2, #d15bc6, #663cbf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.signupButton {
+  background-color: #591b69;
+  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
+  color: #FF8E53;
+  font-family: 'Knewave', cursive;
+  font-size: 22px;
+  font-weight: 100;
+  padding: 2px 13px;
+  margin-top: 12px;
+  margin-left: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 6px 3px rgba(255, 142, 83, 0.72);
+  border-radius: 20px;
+  border: 26;
+  height: 65px;
+}
+
+.welcomeHeader {
+  font-family: 'Knewave', cursive;
+  font-weight: lighter;
   font-size: 40px;
+  color: #0d8568;
   background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
   padding: 12px;
 }
 
-.headerTwo {
-  font-family: 'Shadows Into Light', cursive;
+.petsHeader {
+  font-family: 'Amatic SC', cursive;
   font-size: 65px;
-  color: #0d8568;
-  text-shadow: 2px 2px #ff6b00;
+  color: #31aaba;
   padding-top: 12px;
   text-decoration: overline;
-  /* text-decoration-line: underline; */
-  /* text-decoration-style: double; */
 }
 
-.headerThree {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 20px;
+.myPetsLink {
+  font-family: 'Miniver', cursive;
+  font-size: 25px;
   font-weight: bold;
-  color: #0d8568;
+  color: #FE6B8B;
+  text-shadow: 2px 2px #0d8568;
   padding: 15px;
   text-decoration: underline;
 }
 
-.headerThree:hover{
-  animationIn: headShake;
-  animationOut: zoomOutDown;
-  isVisible: true
+.myPetsLink:hover{
+  color: #86e9c3;
 }
 
-.headerFour {
-  font-family: 'Gloria Hallelujah', cursive;
-  color: #ff8e53;
+.profileHeader {
+  font-family: 'Knewave', cursive;
+  font-weight: lighter;
   font-size: 40px;
+  color: #ff8e53;
   background: linear-gradient(45deg, #6bfeae 30%, #53dbff 90%);
   padding: 12px;
   padding-bottom: 12px;
   margin-bottom: 1px;
 }
 
+.allPetsLogoutLink {
+  font-family: 'Miniver', cursive;
+  font-size: 25px;
+  font-weight: bold;
+  color: #72f6a3;
+  text-shadow: 2px 2px #ff6b00;
+  padding: 15px;
+  text-decoration: underline;
+}
+
+.allPetsLogoutLink:hover {
+  color: #0a5163;
+}
+
+.ui.dropdown {
+  font-family: 'Adam';
+  font-weight: bolder;
+  margin-bottom: 10px;
+  color: #000000;
+  text-shadow: 1.25px .75px #31aaba;
+}
+
 .toggle {
-  fontVariant: small-caps;
+  font-family: 'Shadows Into Light';
+  margin: auto .3%;
+  padding: .3%;
+  font-weight: 900;
   font-size: 18px;
+  color: #31aaba;
+  text-shadow: 1px .75px #000000;
 }
 
 .petContainer {
-  display: grid;
-  justify-content: center;
-  /* background-color: #5f6d87;
-  margin-left: -4px;
-  margin-bottom: 20px;
-  margin-right: -4px;
-  margin-top: 2px; */
-  /* margin: 0 10px 10px 0px; */
+  display: inline-flex;
+  margin: 2%;
+  padding-top: 8%;
 }
-.petTile {
-  /* display: block; */
+
+.ui.page.grid {
+    background-color: #5f6d87;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.ui.card,
+.ui.cards>.card {
+  background-color: #5f6d87;
+  box-shadow: none;
   display: inline-block;
-  justify-content: flex-start;
+}
+
+.ui.inline.image {
+  height: 260px;
+  background-size: contain;
+  margin-bottom: 10px;
+}
+
+.petTile {
+  display: block;
   background-repeat: no-repeat;
   background-position: center 90%;
-  float: left;
-  margin: 1%;
-  margin-bottom: 1%;
-  margin-top: 1%;
-  padding: 4%;
-  padding-bottom: 8%;
-  padding-top: 4%;
+  margin: auto;
+  margin-bottom: 5%;
+  padding: 5%;
   outline: #28610e double thick;
   transition: 0.75s;
   opacity: 1;
   border: none;
-  overflow-wrap: break-word;
-  padding-left: 4px;
 }
 
-.petTileh3 {
-  font-family: 'Amatic SC', cursive;
-  font-size: 55px;
-  color: #FBB;
-}
 
 .minPetTile {
+  background-color: transparent;
+  background-size: cover;
   width: 250px;
   height: 250px;
-  background-size: cover;
 }
 
 .maxPetTile {
+  background-color: transparent;
   background-size: cover;
   width: 500px;
   height: 500px;
 }
 
-.petTile:hover {
-  /* transform: scale(1.05); */
-  transform: skewX(4deg);
+.front:hover {
+  transform: scaleY(1.02);
+  animation: swing;
+  animation-duration: .75s;
+}
+
+.back:hover{
+  transform: scale(.95);
+}
+
+.desc {
+  font-family: 'Gravity-Book';
+  color: #191c24;
+  font-size: 18px;
+  line-height: 20px;
+  text-shadow: .35px .35px #000000;
+  align-items: stretch;
+  max-height: 300px;
+  overflow: scroll;
+  /* overflow-wrap: break-word; */
+}
+
+#details {
+  color: white;
+  text-shadow: 1.75px 1px #000000;
+  margin: 7%;
+}
+
+.petTileh3 {
+  vertical-align: center;
+  font-family: 'Amatic SC', cursive;
+  height: 60px;
+  font-size: 35px;
+  color: #FBB;
+}
+
+.ui.button {
+  font-family: 'Shadows Into Light';
+  font-size: 15px;
+  font-weight: 900;
+  margin: 1.5%;
+  padding: 8px;
+  background-color: #4c5669;
+  color: white;
+  text-shadow: 1.5px 1.5px #394150;
+}
+
+.ui.button:hover {
+  text-shadow: none;
 }
 
 .myPetTile {
   display: block;
   background-repeat: no-repeat;
   background-position: center 90%;
-  float: left;
-  margin: 1%;
-  margin-bottom: 1%;
-  margin-top: 1%;
-  padding: 4%;
-  padding-bottom: 8%;
-  padding-top: 4%;
+  margin: auto;
+  margin-bottom: 5%;
+  padding: 5%;
   outline: #e3e971 ridge thick;
   transition: 0.75s;
   opacity: 1;
-  overflow-wrap: break-word;
-  padding-left: 4px;
+  resize: horizontal;
+  resize: vertical;
+  resize-mode: contain;
 }
 
 .myPetTileh3 {
+  vertical-align: center;
   font-family: 'Amatic SC', cursive;
-  font-size: 55px;
+  height: 60px;
+  font-size: 35px;
   color: #00e8b0;
 }
 
 .minMyPetTile {
+  background-color: transparent;
+  background-size: cover;
   width: 250px;
   height: 250px;
-  background-size: cover;
 }
 
 .maxMyPetTile {
+  background-color: transparent;
   background-size: cover;
   width: 500px;
   height: 500px;
 }
 
-.myPetTile:hover {
-  /* transform: scale(1.05); */
-  transform: skewX(-4deg);
-}
-
-#adoptedPets {
-  /* vertical-align: right; */
-  text-align: left;
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 25px;
-  color: #ff6b00;
-  text-shadow: 1.5px 1.5px #0d8568; ;
-  padding-top: 1px;
+.adopted {
+  font-family: 'Knewave', cursive;
+  font-size: 100px;
+  font-weight: bold;
+  color: black;
+  text-shadow: 1.1px .55px #ffffff;
 }
 
 .adoptedPetsButton {
-  /* font-family: 'Gloria Hallelujah', cursive; */
-  color: #c98de6;
-  font-family: 'Miniver', cursive;
-  font-size: 25px;
+  text-align: center;
+  font-family: 'Amatic SC', cursive;
+  font-size: 32px;
+  font-weight: bolder;
+  color: white;
+  text-shadow: 2.25px 2.25px #000000;
+  background-color: #5f6d87;
+  border: none;
+  resize: horizontal;
+  resize: vertical;
+  box-shadow: 0 3px 5px 3px #7b8aa6;
 }
 
 .adoptedPetsButton:hover {
-  color: #72f6a3;
+  color: #00e8b0;
+  text-shadow: 1.2px 1.8px  #e3e971;
 }
 
-.adopted {
-  font-family: 'Knewave', cursive;
+#adoptedPets {
+  text-align: left;
+  padding-top: 1px;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 30px;
+  font-weight: 900;
+  color: #ff6b00;
+  text-shadow: 2px 1.25px #72f6a3;
 }

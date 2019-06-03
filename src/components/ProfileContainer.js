@@ -21,31 +21,29 @@ class ProfileContainer extends React.Component {
     return(
       <div className="ui container">
         <br/>
-        <Link to='/' className="headerThree" onClick={this.props.resetCheckbox}>Back To All Pets</Link>
+        <Link to='/' className="allPetsLogoutLink" onClick={this.props.resetCheckbox}>Back To All Pets</Link>
         <span style={{"fontSize": "25px", "color": "#0d8568"}}> | </span>
-        <Link to='/' className="headerThree" onClick={this.props.logout}>Logout</Link>
-        <h2 className="headerFour">{this.props.currentUser.name}'s Pet List </h2>
+        <Link to='/' className="allPetsLogoutLink" onClick={this.props.logout}>Logout</Link>
+        <h2 className="profileHeader">{this.props.currentUser.name}'s Pet List </h2>
         <br/>
         <div className="ui container">
           <MyAdoptedPets myAdoptedPets={this.props.myAdoptedPets} pets={this.props.pets}/>
         </div>
         <br/><br/>
-        <div className="ui container">
-          <div className="ui page grid">
-            {
-              this.props.myPets.map(mypet => {
-                return <MyPets key={mypet.pet_id} {...mypet} pets={this.props.pets}
-                  handleAdopt={this.props.handleAdopt} currentUser={this.props.currentUser}
-                  adopted={this.props.adopted}
-                  petObj={this.props.petObj}
-                  handleAdoptedStatus={this.handleAdoptedStatus}
-                  myPets={this.props.myPets}
-                  myAdoptedPets={this.props.myAdoptedPets}
-                  removeFromMyPets={this.props.removeFromMyPets}
-                       />
-              })
-            }
-          </div>
+        <div className="ui page grid">
+          {
+            this.props.myPets.map(mypet => {
+              return <MyPets key={mypet.pet_id} {...mypet} pets={this.props.pets}
+                handleAdopt={this.props.handleAdopt} currentUser={this.props.currentUser}
+                adopted={this.props.adopted}
+                petObj={this.props.petObj}
+                handleAdoptedStatus={this.handleAdoptedStatus}
+                myPets={this.props.myPets}
+                myAdoptedPets={this.props.myAdoptedPets}
+                removeFromMyPets={this.props.removeFromMyPets}
+                     />
+            })
+          }
         </div>
       </div>
     )

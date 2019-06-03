@@ -47,12 +47,14 @@ class Signin extends React.Component {
             <input className="signinPlaceholders"
               onChange={this.handleChange}
               name="username"
+              type="text"
               value={this.state.username}
               placeholder="username"
             />
             <input className="signinPlaceholders"
               onChange={this.handleChange}
               name="password"
+              type="password"
               value={this.state.password}
               placeholder="password"
               type="password"

@@ -84,12 +84,11 @@ class PetContainer extends Component {
     }
     return (
       <div className="ui contianer">
-        <Link to="profile">
-          <p className="headerThree">My Pets</p>
-        </Link>
-        <h1 className="headerOne">Welcome {this.props.currentUser.name}</h1>
+        <br/>
+        <Link to="profile" className="myPetsLink">My Pets</Link>
+        <h1 className="welcomeHeader">Welcome {this.props.currentUser.name}</h1>
         <Animated animationIn="tada" animationOut="flash" isVisible={true}>
-          <h1 className="headerTwo"> ♡ Pets! ♡ </h1>
+          <h1 className="petsHeader"> ❤︎ Pets! ❤︎ </h1>
         </Animated>
         <div className="ui header">
           <select className="ui dropdown" onChange={this.props.handleSorted}>
@@ -98,15 +97,15 @@ class PetContainer extends Component {
           </select>
           <div>
             <input name= "Cats" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-            <label htmlFor="Cats">Cats Only!</label>
+            <label className="toggle" style={{"color": "#31aaba"}} htmlFor="Cats">Cats Only!</label>
           </div>
           <div>
             <input name= "Dogs" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-            <label className="toggle" htmlFor="Dogs">Dogs Only!</label>
+            <label className="toggle" style={{"color": "#31aaba"}} htmlFor="Dogs">Dogs Only!</label>
           </div>
           <div>
             <input name= "Rabbits" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-            <label className="toggle" htmlFor="Rabbits">Rabbits Only!</label>
+            <label className="toggle" style={{"color": "#31aaba"}} htmlFor="Rabbits">Rabbits Only!</label>
           </div>
         </div>
         <br></br>

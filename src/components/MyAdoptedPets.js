@@ -39,9 +39,9 @@ class MyAdoptedPets extends React.Component {
 
   render() {
     return (
-      <Fragment>
-        {this.showAdopted()}
-      </Fragment>
+        <Fragment>
+          {this.showAdopted()}
+        </Fragment>
     )
   }
 }

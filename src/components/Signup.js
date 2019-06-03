@@ -12,6 +12,7 @@ class Signup extends React.Component {
   }
 
   handleChange = (event) => {
+    console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -50,18 +51,21 @@ class Signup extends React.Component {
             <input className="signupPlaceholders"
               onChange={this.handleChange}
               name="name"
+              type="input"
               value={this.state.name}
               placeholder="name"
             />
             <input className="signupPlaceholders"
               onChange={this.handleChange}
               name="username"
+              type="text"
               value={this.state.username}
               placeholder="username"
             />
             <input className="signupPlaceholders"
               onChange={this.handleChange}
               name="password"
+              type="password"
               value={this.state.password}
               placeholder="password"
               type="password"
