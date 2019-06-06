@@ -22,9 +22,9 @@ class PetCard extends Component {
             <div className="petTile back">
               <h1 className="petTileh3">{this.props.pet.name}</h1>
               <div className="desc"> Description:{this.props.pet.description}</div>
-              <h5 id="details"> Sex:{this.props.pet.sex}</h5>
-              <h5 id="details"> Animal:{this.props.pet.animal}</h5>
-              <h5 id="details"> Age:{this.props.pet.age}</h5>
+              <h5 id="details"> Sex: {this.props.pet.sex}</h5>
+              <h5 id="details"> Animal: {this.props.pet.animal}</h5>
+              <h5 id="details"> Age: {this.props.pet.age}</h5>
               <h5 id="details"> Breed: {this.props.pet.breed}</h5>
               <button className= "ui button" onClick={this.handleClick}> Back </button>
               {this.props.handleAdoptedStatus(this.props.currentUser.id, this.props.pet.id)}

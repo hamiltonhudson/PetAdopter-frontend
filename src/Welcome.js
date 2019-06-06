@@ -3,6 +3,9 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import { Animated } from 'react-animated-css';
 import './App.css';
 import './App.scss';
+import doggo from './images/doggo.jpg';
+import kitter from './images/kitter.jpg';
+import catdog from './images/catdog.jpg';
 
 class Welcome extends Component {
 
@@ -13,23 +16,27 @@ class Welcome extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          {/* <Animated animationIn="rollIn" animationOut="rollOut" isVisible={true}> */}
-          <img src="http://www.hslcnm.org/wp-content/uploads/2014/03/baby.jpg"
-            alt="pet" className="App-logo out"
+        <header className="App-image">
+          <img src={doggo}
+            alt="doggo" className="App-logo"
           />
-          {/* </Animated> */}
+          {/* <img src={kitter}
+            alt="kitter" className="App-logo"
+          /> */}
+          {/* <img src={catdog}
+            alt="cat-and-dog" className="App-logo"
+          /> */}
           <br/><br/><br/><br/>
           <Animated animationIn="pulse" animationOut="flash" isVisible={true}>
-            <p className="App-header-two">Adopt A Pet!</p>
+            <p className="App-header">Adopt A Pet!</p>
           </Animated>
           <br/><br/>
           <Link to='/signin' onClick={this.handleClick} className='App-link'>
-            Sign-In
+            SignIn
           </Link>
           <br></br><br></br>
           <Link to='/signup' onClick={this.handleClick} className='App-link'>
-            Sign-Up
+            SignUp
           </Link>
         </header>
       </div>

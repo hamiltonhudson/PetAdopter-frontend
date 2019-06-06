@@ -22,7 +22,7 @@ class ProfileContainer extends React.Component {
       <div>
         <br/>
         <Link to='/' className="allPetsLogoutLink" onClick={this.props.resetCheckbox}>Back To All Pets</Link>
-        <span style={{"fontSize": "25px", "color": "#0d8568"}}> | </span>
+        <span style={{"fontSize": "25px", "color": "#56587e", "fontWeight": "bolder"}}> | </span>
         <Link to='/' className="allPetsLogoutLink" onClick={this.props.logout}>Logout</Link>
         <h1 className="profileHeader">{this.props.currentUser.name}'s Pet List </h1>
         <br/>

@@ -41,9 +41,9 @@ class MyPets extends React.Component {
               <div className="myPetTile back">
                 <h1 className="myPetTileh3">{foundPet.name}</h1>
                 <div className="desc"> Description:{foundPet.description}</div>
-                <h3 id="details"> Sex:{foundPet.sex}</h3>
-                <h3 id="details"> Animal:{foundPet.animal}</h3>
-                <h3 id="details"> Age:{foundPet.age}</h3>
+                <h3 id="details"> Sex: {foundPet.sex}</h3>
+                <h3 id="details"> Animal: {foundPet.animal}</h3>
+                <h3 id="details"> Age: {foundPet.age}</h3>
                 <h3 id="details"> Breed: {foundPet.breed}</h3>
                 <button className= "ui button" onClick={this.handleClick}> Back </button>
                 <div>

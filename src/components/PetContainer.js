@@ -97,15 +97,15 @@ class PetContainer extends Component {
           </select>
           <div>
             <input name= "Cats" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-            <label className="toggle" style={{"color": "#31aaba"}} htmlFor="Cats">Cats Only!</label>
+            <label className="toggle" htmlFor="Cats">Cats Only</label>
           </div>
           <div>
             <input name= "Dogs" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-            <label className="toggle" style={{"color": "#31aaba"}} htmlFor="Dogs">Dogs Only!</label>
+            <label className="toggle" htmlFor="Dogs">Dogs Only</label>
           </div>
           <div>
             <input name= "Rabbits" className="ui checkbox" onChange={this.props.handleFilter} type="checkbox" />
-            <label className="toggle" style={{"color": "#31aaba"}} htmlFor="Rabbits">Rabbits Only!</label>
+            <label className="toggle" htmlFor="Rabbits">Rabbits Only</label>
           </div>
         </div>
         <br></br>

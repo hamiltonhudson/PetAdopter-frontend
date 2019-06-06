@@ -4,23 +4,57 @@ html, body {
   overflow: scroll;
 }
 
+@font-face {
+  font-family: 'Bondoluo Peek Thin';
+  src: local('Bondoluo Peek Thin'), url(./fonts/BondoluoPeek.ttf) format('woff')
+}
+@font-face {
+  font-family: 'Code Bold';
+  src: local('Code Bold'), url(./fonts/CODEBold.otf) format('woff');
+}
+@font-face {
+  font-family: 'Code Light';
+  src: local('Code Light'), url(./fonts/CODELight.otf) format('woff')
+}
+@font-face {
+  font-family: 'Gravity Book';
+  src: local('Gravity Book'), url(./fonts/Gravity-Book.otf) format('woff');
+}
+@font-face {
+  font-family: 'Gravity Light';
+  src: local('Gravity Light'), url(./fonts/Gravity-Light.otf) format('woff');
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  animation: rollIn;
-  animation-duration: 3s;
-  animation-iteration-count: 5;
-}
-
-.out {
   animation: rollOut;
-  animation-duration: 3s;
-  animation-delay: 1s;
+  animation-delay: 6s;
+  animation-duration: 4s;
+  /* border: 20px solid #000;
+  box-shadow: 2px 2px #000000; */
+  /* animation-iteration-count: infinite; */
 }
 
-.App-header {
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+
+#first {
+  animation: fadeOut;
+  animation-delay: 6s;
+}
+
+
+.App-image {
   background-color: #5f6d87;
   min-height: 100vh;
   display: flex;
@@ -30,17 +64,32 @@ html, body {
   font-size: calc(10px + 2vmin);
   color: white;
   text-shadow: 2px 2px #000000;
+  animation: rollIn;
+  animation-duration: 3s;
+  /* animation-iteration-count: 5; */
+}
+
+.App-header {
+  font-family: 'Knewave', cursive;
+  font-size: 85px;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+.App-header:pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
 }
 
 .App-link {
-  color: #c98de6;
-  font-family: 'Miniver', cursive;
   font-size: 35px;
-  text-shadow: .5px .25px #ffffff;
+  font-family: 'Bondoluo Peek Thin';
+  color: #000000;
+  text-shadow: .15px .05px #7b8aa6;
 }
 
 .App-link:hover {
-  color: #fba2a2;
+  color: #fff;
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
@@ -48,27 +97,6 @@ html, body {
 .pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse;
-}
-
-.App-header-two {
-  font-family: 'Knewave', cursive;
-  font-size: 85px;
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-}
-
-.App-header-two:pulse {
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 
@@ -85,22 +113,23 @@ html, body {
 }
 
 .signinHeader {
-  background-color: #FF8E53;
-  background: linear-gradient(45deg, #ff6253 30%, #b539b0 90%);
-  color: #591b69;
-  font-family: 'Knewave', cursive;
-  font-size: 50px;
-  font-weight: 100;
-  padding: 12px 13px;
-  margin-top: 15px;
+  /* background-color: #475d6e; */
+  background: linear-gradient(45deg, #475d6e 30%, #343555 90%);
+  color: #fff;
+  font-family: 'Bondoluo Peek Thin';
+  font-size: 35px;
+  letter-spacing: 2.5px;
+  padding: 18px;
+  margin: auto;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
-  box-shadow: 0 6px 10px 6px rgba(112, 23, 173, 0.72);
+  border-radius: 12px;
+  box-shadow: 0 6px 10px 0px rgba(143, 158, 195, 0.72);
 }
 
 .signinPlaceholders {
   text-align: center;
+  display: inline;
   margin: 30px;
   margin-bottom: 20px;
   padding-bottom: 5px;
@@ -109,28 +138,23 @@ html, body {
   font-weight: 100;
   border-width: 10px;
   border: none;
-  border-bottom: 1.5px inset rgba(161, 114, 194, 0.91);
-  display: inline;
-  background: -webkit-linear-gradient(#663cbf, #d15bc6, #fba2a2);
+  border-bottom: 1.5px inset rgba(143, 158, 195, 0.72);
+  background: -webkit-linear-gradient(#475d6e, #343555, #56587e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .signinButton {
-  background-color: #FF8E53;
-  background: linear-gradient(45deg, #ff6253 30%, #b539b0 90%);
-  color: #591b69;
-  font-family: 'Knewave', cursive;
-  font-size: 22px;
-  font-weight: 100;
-  padding: 2px 13px;
-  margin-top: 12px;
-  margin-left: 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 6px 10px 6px rgba(112, 23, 173, 0.72);
-  border-radius: 20px;
-  border: 26;
-  height: 65px;
+  background: linear-gradient(45deg, #475d6e 30%, #343555 90%);
+  color: #fff;
+  font-family: 'Bondoluo Peek Thin';
+  font-size: 15px;
+  margin: auto;
+  padding: 8px 16px;
+  box-shadow: 0 6px 10px 0px rgba(143, 158, 195, 0.72);
+  border-radius: 14px;
+  border-color: transparent;
+  display: inline-flex;
 }
 
 
@@ -140,22 +164,23 @@ html, body {
 }
 
 .signupHeader {
-  background-color: #591b69;
-  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
-  color: #FF8E53;
-  font-family: 'Knewave', cursive;
-  font-size: 50px;
-  font-weight: 100;
-  padding: 12px 13px;
-  margin-top: 15px;
+  /* background-color: #343555; */
+  background: linear-gradient(45deg, #343555 30%, #475d6e 90%);
+  color: #fff;
+  font-family: 'Bondoluo Peek Thin';
+  font-size: 35px;
+  letter-spacing: 2.5px;
+  padding: 18px;
+  margin: auto;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
-  box-shadow: 0 6px 10px 6px rgba(255, 142, 83, 0.72);
+  border-radius: 12px;
+  box-shadow: 0 6px 10px 0px rgba(143, 158, 195, 0.72);
 }
 
 .signupPlaceholders {
   text-align: center;
+  display: inline;
   margin: 30px;
   margin-bottom: 20px;
   padding-bottom: 5px;
@@ -164,67 +189,72 @@ html, body {
   font-weight: 100;
   border-width: 10px;
   border: none;
-  border-bottom: 1px inset rgba(246, 198, 172, 0.65);
-  display: inline;
-  background: -webkit-linear-gradient(#fba2a2, #d15bc6, #663cbf);
+  border-bottom: 1.5px inset rgba(37, 49, 79, 0.75);
+  border-bottom-style: solid;
+  background: -webkit-linear-gradient(#475d6e, #56587e, #343555);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .signupButton {
-  background-color: #591b69;
-  background: linear-gradient(45deg, #d5506d 30%, #662378 90%);
-  color: #FF8E53;
-  font-family: 'Knewave', cursive;
-  font-size: 22px;
-  font-weight: 100;
-  padding: 2px 13px;
-  margin-top: 12px;
-  margin-left: 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 6px 3px rgba(255, 142, 83, 0.72);
-  border-radius: 20px;
-  border: 26;
-  height: 65px;
+  background: linear-gradient(45deg, #343555 30%, #475d6e 90%);
+  color: #fff;
+  font-family: 'Bondoluo Peek Thin';
+  font-size: 15px;
+  margin: auto;
+  padding: 8px 16px;
+  box-shadow: 0 6px 10px 0px rgba(143, 158, 195, 0.72);
+  border-radius: 14px;
+  border-color: transparent;
+  display: inline-flex;
 }
 
 .welcomeHeader {
-  font-family: 'Knewave', cursive;
+  font-family: 'Code Light';
+  letter-spacing: 3px;
   font-weight: lighter;
-  font-size: 40px;
-  color: #0d8568;
-  background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+  font-size: 50px;
+  /* color: #7b8aa6; */
+  color: #5f6d87;
+  background: linear-gradient(45deg, #475d6e 30%, #343555 90%);
   padding: 12px;
+  margin-bottom: 1em;
 }
 
 .petsHeader {
-  font-family: 'Amatic SC', cursive;
-  font-size: 65px;
-  color: #31aaba;
-  padding-top: 12px;
-  text-decoration: overline;
+  font-family: 'Bondoluo Peek Thin';
+  font-size: 45px;
+  border-top: .5px outset rgba(143, 158, 195, 0.72);
+  border-bottom: 2px outset rgba(143, 158, 195, 0.72);
+  display: inline;
+  background: -webkit-linear-gradient(#475d6e, #343555, #56587e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .myPetsLink {
   font-family: 'Miniver', cursive;
   font-size: 25px;
   font-weight: bold;
-  color: #FE6B8B;
-  text-shadow: 2px 2px #0d8568;
+  color: #343555;
+  text-shadow: 2px 2px #56587e;
   padding: 15px;
   text-decoration: underline;
 }
 
 .myPetsLink:hover{
-  color: #86e9c3;
+  color: #56587e;
+  text-shadow: 2px 2px #343555;
 }
 
 .profileHeader {
-  font-family: 'Knewave', cursive;
+  font-family: 'Code Light';
+  letter-spacing: 3px;
   font-weight: lighter;
-  font-size: 40px;
-  color: #ff8e53;
-  background: linear-gradient(45deg, #6bfeae 30%, #53dbff 90%);
+  font-size: 50px;
+  /* color: #7b8aa6; */
+  color: #5f6d87;
+  background: linear-gradient(45deg, #343555 30%, #475d6e 90%);
   padding: 12px;
   padding-bottom: 12px;
   margin-bottom: 1px;
@@ -234,32 +264,35 @@ html, body {
   font-family: 'Miniver', cursive;
   font-size: 25px;
   font-weight: bold;
-  color: #72f6a3;
-  text-shadow: 2px 2px #ff6b00;
+  color: #4d5b75;
+  text-shadow: 2px 2px #343555;
   padding: 15px;
   text-decoration: underline;
 }
 
 .allPetsLogoutLink:hover {
-  color: #0a5163;
+  color: #343555;
+  text-shadow: 2px 2px #475d6e;
 }
 
 .ui.dropdown {
-  font-family: 'Adam';
-  font-weight: bolder;
+  font-family: 'Bondoluo Peek Thin';
+  font-size: 16px;
+  letter-spacing: 1.5px;
   margin-bottom: 10px;
-  color: #000000;
-  text-shadow: 1.25px .75px #31aaba;
+  margin-top: 18px;
+  color: #000;
+  text-shadow: .5px .5px #000000;
 }
 
 .toggle {
-  font-family: 'Shadows Into Light';
+  font-family: 'Bondoluo Peek Thin';
+  padding: .3%;
+  font-size: 12px;
+  letter-spacing: 1.5px;
   margin: auto .3%;
   padding: .3%;
-  font-weight: 900;
-  font-size: 18px;
-  color: #31aaba;
-  text-shadow: 1px .75px #000000;
+  text-shadow: .5px .5px #000000;
 }
 
 .petContainer {
@@ -269,10 +302,10 @@ html, body {
 }
 
 .ui.page.grid {
-    background-color: #5f6d87;
-    display: flex;
-    justify-content: center;
-    align-content: center;
+  background-color: #5f6d87;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .ui.card,
@@ -295,7 +328,7 @@ html, body {
   margin: auto;
   margin-bottom: 5%;
   padding: 5%;
-  outline: #28610e double thick;
+  outline: #343555 double thick;
   transition: 0.75s;
   opacity: 1;
   border: none;
@@ -317,9 +350,9 @@ html, body {
 }
 
 .front:hover {
-  transform: scaleY(1.02);
-  animation: swing;
-  animation-duration: .75s;
+  transform: scaleY(1.05);
+  /* animation: swing; */
+  /* animation-duration: .75s; */
 }
 
 .back:hover{
@@ -327,7 +360,7 @@ html, body {
 }
 
 .desc {
-  font-family: 'Gravity-Book';
+  font-family: 'Gravity Book';
   color: #191c24;
   font-size: 18px;
   line-height: 20px;
@@ -339,6 +372,9 @@ html, body {
 }
 
 #details {
+  font-family: 'Gravity Light';
+  letter-spacing: .5px;
+  font-size: 16px;
   color: white;
   text-shadow: 1.75px 1px #000000;
   margin: 7%;
@@ -346,21 +382,23 @@ html, body {
 
 .petTileh3 {
   vertical-align: center;
-  font-family: 'Amatic SC', cursive;
-  height: 60px;
-  font-size: 35px;
-  color: #FBB;
+  height: 35px;
+  font-family: 'Code Bold';
+  font-size: 22px;
+  color: rgba(143, 158, 195, 0.72);
+  text-shadow: 1px 1.75px #23233e;
 }
 
 .ui.button {
-  font-family: 'Shadows Into Light';
-  font-size: 15px;
+  font-family: 'Bondoluo Peek Thin';
+  font-size: 10px;
   font-weight: 900;
+  letter-spacing: 1.5px;
   margin: 1.5%;
   padding: 8px;
   background-color: #4c5669;
   color: white;
-  text-shadow: 1.5px 1.5px #394150;
+  text-shadow: 1px 1px #394150;
 }
 
 .ui.button:hover {
@@ -374,7 +412,8 @@ html, body {
   margin: auto;
   margin-bottom: 5%;
   padding: 5%;
-  outline: #e3e971 ridge thick;
+  outline: #56587e ;
+  outline-style: ridge;
   transition: 0.75s;
   opacity: 1;
   resize: horizontal;
@@ -384,10 +423,11 @@ html, body {
 
 .myPetTileh3 {
   vertical-align: center;
-  font-family: 'Amatic SC', cursive;
-  height: 60px;
-  font-size: 35px;
-  color: #00e8b0;
+  height: 35px;
+  font-family: 'Code Bold';
+  font-size: 22px;
+  color: #343555;
+  text-shadow: 1px 1.75px rgba(143, 158, 195, 0.72);
 }
 
 .minMyPetTile {
@@ -413,7 +453,6 @@ html, body {
 }
 
 .adoptedPetsButton {
-  text-align: center;
   font-family: 'Amatic SC', cursive;
   font-size: 32px;
   font-weight: bolder;
@@ -427,16 +466,24 @@ html, body {
 }
 
 .adoptedPetsButton:hover {
-  color: #00e8b0;
-  text-shadow: 1.2px 1.8px  #e3e971;
+  color: #7b8aa6;
+  background-color: #5f6d87;
+  border: none;
+  box-shadow: 0 3px 5px 3px #7b8aa6;
 }
 
 #adoptedPets {
   text-align: left;
   padding-top: 1px;
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 30px;
-  font-weight: 900;
-  color: #ff6b00;
-  text-shadow: 2px 1.25px #72f6a3;
+  font-family: 'Bondoluo Peek Thin';
+  font-size: 25px;
+  letter-spacing: 1.5px;
+  color: #000000;
+  text-shadow: 2px 1.5px #7b8aa6;
+  position: absolute;
+  float: left;
+  margin-left: -10%;
+  resize: horizontal;
+  resize: vertical;
+  resize-mode: contain;
 }

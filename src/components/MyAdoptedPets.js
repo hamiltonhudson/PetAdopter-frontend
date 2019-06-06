@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import '../App.css';
 
 class MyAdoptedPets extends React.Component {
 
@@ -15,17 +16,19 @@ class MyAdoptedPets extends React.Component {
   showAdopted = () => {
     if(this.state.shown) {
       return (
-        <div id="adoptedPets">
-          <button className="adoptedPetsButton" onClick={this.handleShow}>Hide Adopted</button><br/>
-          {
-            this.props.myAdoptedPets.map(adoptedPet => {
-              return(
-                <ul key={adoptedPet.id}>
-                  {adoptedPet.name}
-                </ul>
-              )
-            })
-          }
+        <div className="row" id="adoptedPets">
+          <div className="col l6 m4 s2">
+            <button className="adoptedPetsButton" onClick={this.handleShow}>Hide Adopted</button><br/>
+            {
+              this.props.myAdoptedPets.map(adoptedPet => {
+                return(
+                  <ul key={adoptedPet.id}>
+                    {adoptedPet.name}
+                  </ul>
+                )
+              })
+            }
+          </div>
         </div>
       )
     } else {
