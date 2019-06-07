@@ -109,7 +109,7 @@ class PetContainer extends Component {
           </div>
         </div>
         <br></br>
-        <div className="ui page grid">
+        <div className="ui page grid" style={{"justifyContent": "center"}}>
           {petList}
         </div>
       </div>

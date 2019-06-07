@@ -43,21 +43,20 @@ class Signin extends React.Component {
         <h1 className="signinHeader">Sign In To Save Pets!</h1>
         <br/><br/>
         <div className="login">
-          <form onSubmit={this.handleSubmit}>
-            <input className="signinPlaceholders"
+          <form onSubmit={this.handleSubmit} className="signinForm">
+            <input
               onChange={this.handleChange}
               name="username"
               type="text"
               value={this.state.username}
               placeholder="username"
             />
-            <input className="signinPlaceholders"
+            <input
               onChange={this.handleChange}
               name="password"
               type="password"
               value={this.state.password}
               placeholder="password"
-              type="password"
             /><br></br><br/><br/><br/>
             <input
               type="submit"

@@ -2,6 +2,7 @@ html, body {
   background-color: #5f6d87;
   text-align: center;
   overflow: scroll;
+  padding: 10px;
 }
 
 @font-face {
@@ -33,9 +34,6 @@ html, body {
   animation: rollOut;
   animation-delay: 6s;
   animation-duration: 4s;
-  /* border: 20px solid #000;
-  box-shadow: 2px 2px #000000; */
-  /* animation-iteration-count: infinite; */
 }
 
 /* @keyframes App-logo-spin {
@@ -66,7 +64,6 @@ html, body {
   text-shadow: 2px 2px #000000;
   animation: rollIn;
   animation-duration: 3s;
-  /* animation-iteration-count: 5; */
 }
 
 .App-header {
@@ -127,7 +124,10 @@ html, body {
   box-shadow: 0 6px 10px 0px rgba(143, 158, 195, 0.72);
 }
 
-.signinPlaceholders {
+.signinForm input[type=text]:enabled,
+.signinForm input[type=password]:enabled,
+.signinForm input[type=text]::first-line,
+.signinForm input[type=password]::first-line {
   text-align: center;
   display: inline;
   margin: 30px;
@@ -178,7 +178,10 @@ html, body {
   box-shadow: 0 6px 10px 0px rgba(143, 158, 195, 0.72);
 }
 
-.signupPlaceholders {
+.signupForm input[type=text]:enabled,
+.signupForm input[type=password]:enabled,
+.signupForm input[type=text]::first-line,
+.signupForm input[type=password]::first-line {
   text-align: center;
   display: inline;
   margin: 30px;
@@ -212,10 +215,9 @@ html, body {
 .welcomeHeader {
   font-family: 'Code Light';
   letter-spacing: 3px;
-  font-weight: lighter;
+  font-weight: bolder;
   font-size: 50px;
-  /* color: #7b8aa6; */
-  color: #5f6d87;
+  color: #7b8aa6;
   background: linear-gradient(45deg, #475d6e 30%, #343555 90%);
   padding: 12px;
   margin-bottom: 1em;
@@ -250,10 +252,9 @@ html, body {
 .profileHeader {
   font-family: 'Code Light';
   letter-spacing: 3px;
-  font-weight: lighter;
+  font-weight: bolder;
   font-size: 50px;
-  /* color: #7b8aa6; */
-  color: #5f6d87;
+  color: #7b8aa6;
   background: linear-gradient(45deg, #343555 30%, #475d6e 90%);
   padding: 12px;
   padding-bottom: 12px;
@@ -301,11 +302,24 @@ html, body {
   padding-top: 8%;
 }
 
-.ui.page.grid {
-  background-color: #5f6d87;
+.profilePetsWrapper {
   display: flex;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-between;
+}
+
+.savedPets {
+  min-width: 90%;
+  max-width: 150%;
+  height: 150vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.ui.page.grid {
+  display: flex;
+  /* justify-content: center; */
 }
 
 .ui.card,
@@ -460,9 +474,9 @@ html, body {
   text-shadow: 2.25px 2.25px #000000;
   background-color: #5f6d87;
   border: none;
-  resize: horizontal;
-  resize: vertical;
   box-shadow: 0 3px 5px 3px #7b8aa6;
+  overflow-wrap: break-word;
+  margin-bottom: 15px;
 }
 
 .adoptedPetsButton:hover {
@@ -472,18 +486,22 @@ html, body {
   box-shadow: 0 3px 5px 3px #7b8aa6;
 }
 
-#adoptedPets {
-  text-align: left;
-  padding-top: 1px;
+.adoptedPets {
+  width: 15%;
+  height: 25vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  margin-right: 23px;
+  margin-left: 5px;
+}
+
+#ulPets {
   font-family: 'Bondoluo Peek Thin';
-  font-size: 25px;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
+  font-size: 14px;
   color: #000000;
+  font-weight: bolder;
   text-shadow: 2px 1.5px #7b8aa6;
-  position: absolute;
-  float: left;
-  margin-left: -10%;
-  resize: horizontal;
-  resize: vertical;
-  resize-mode: contain;
+  margin-left: -30px;
 }

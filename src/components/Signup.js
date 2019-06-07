@@ -47,15 +47,15 @@ class Signup extends React.Component {
         <h1 className="signupHeader">Sign Up To Save Pets!</h1>
         <br/><br/>
         <div className="login">
-          <form onSubmit={this.handleSubmit}>
-            <input className="signupPlaceholders"
+          <form onSubmit={this.handleSubmit} className="signupForm">
+            <input
               onChange={this.handleChange}
               name="name"
-              type="input"
+              type="text"
               value={this.state.name}
               placeholder="name"
             />
-            <input className="signupPlaceholders"
+            <input
               onChange={this.handleChange}
               name="username"
               type="text"
@@ -68,7 +68,6 @@ class Signup extends React.Component {
               type="password"
               value={this.state.password}
               placeholder="password"
-              type="password"
             /><br/><br/><br/><br/>
             <input onClick={this.props.handleClick}
               type="submit"
