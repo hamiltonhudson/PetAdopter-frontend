@@ -39,7 +39,7 @@ class PetCard extends Component {
           <div className="ui card image">
             <div className="petTile front">
               <h1 className="petTileh3">{this.props.pet.name}</h1>
-              <img className="ui inline image" src={(this.props.pet.photo)} />
+              <img className="ui inline image" src={(this.props.pet.photo)} alt={this.props.pet.name}/>
               <button className="ui button" onClick={this.handleClick}> View More Details! </button>
               {this.props.handleAdoptedStatus(this.props.currentUser.id, this.props.pet.id)}
               <AddOrRemovePet currentUser={this.props.currentUser} pet={this.props.pet} petId={this.props.pet.id} pets={this.props.pets} myPets={this.props.myPets} myAdoptedPets={this.props.myAdoptedPets} handleMyPets={this.props.handleMyPets} removeFromMyPets={this.props.removeFromMyPets}/>

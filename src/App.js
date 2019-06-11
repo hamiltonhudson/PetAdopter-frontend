@@ -6,7 +6,6 @@ import { Route, withRouter } from 'react-router-dom';
 import ProfileContainer from "./components/ProfileContainer";
 
 const apiMatchesAddress = 'http://localhost:3000/api/v1/matches'
-const apiUsersAddress = 'http://localhost:3000/api/v1/users'
 const apiPetsAddress = 'http://localhost:3000/api/v1/pets'
 
 class App extends React.Component {
@@ -22,23 +21,13 @@ class App extends React.Component {
     myAdoptedPets: []
   }
 
-  // componentDidMount() {
-  //   fetch(apiPetsAddress)
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     this.setState({
-  //       pets: data
-  //     })
-  //   })
-  // }
-
-  setCurrentUser = userObj => this.setState({currentUser:userObj},()=>{
+  setCurrentUser = (userObj) => this.setState({currentUser: userObj}, () => {
   })
 
   setAllPets = (petData) => this.setState({pets: petData}, () => {
   })
 
-  setMyPets = (currentUserPets, usersAdoptedPets) => this.setState({myPets:currentUserPets, myAdoptedPets:usersAdoptedPets},()=>{
+  setMyPets = (currentUserPets, usersAdoptedPets) => this.setState({myPets: currentUserPets, myAdoptedPets: usersAdoptedPets},() => {
   })
 
   handleSorted = (event) => {
@@ -125,12 +114,10 @@ class App extends React.Component {
     }
     fetch(`${apiPetsAddress}/${petId}`, postConfig)
     .then(r => r.json())
-    // debugger
     .then(petData => {
       let pets = petData
-      // let adoptedPet = this.state.myPets.find(pet => pet.pet_id === data.pet_id)
       let adoptedPet = pets.find(pet => pet.id === petId)
-      let index = this.state.myPets.indexOf(adoptedPet)
+      // let index = this.state.myPets.indexOf(adoptedPet)
       let usersAdoptedPets = pets.filter(pet => pet.owner_id === this.state.currentUser.id)
       this.setState({
         pets: pets,

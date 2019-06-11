@@ -1,6 +1,5 @@
 import React from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
-import ProfileContainer from './ProfileContainer';
+import { Redirect } from 'react-router-dom';
 
 const apiUsersAddress = 'http://localhost:3000/api/v1/login'
 
@@ -12,7 +11,6 @@ class Signin extends React.Component {
   }
 
   handleChange = (event) => {
-    console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value,
     })
@@ -29,7 +27,6 @@ class Signin extends React.Component {
     })
       .then(res => res.json())
       .then(userObj => {
-        console.log(userObj)
         localStorage.setItem('jwt', userObj.token);
         const usersAdoptedPets = userObj.pets.filter(pet => pet.owner_id === userObj.id)
         this.props.setCurrentUser(userObj)

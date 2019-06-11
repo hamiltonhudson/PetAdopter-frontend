@@ -6,6 +6,10 @@ html, body {
 }
 
 @font-face {
+  font-family: 'AmaticSC';
+  src: local('AmaticSC'), url(./fonts/AmaticSC.ttf) format('woff')
+}
+@font-face {
   font-family: 'Bondoluo Peek Thin';
   src: local('Bondoluo Peek Thin'), url(./fonts/BondoluoPeek.ttf) format('woff')
 }
@@ -25,9 +29,48 @@ html, body {
   font-family: 'Gravity Light';
   src: local('Gravity Light'), url(./fonts/Gravity-Light.otf) format('woff');
 }
+@font-face {
+  font-family: 'Knewave';
+  src: local('Knewave'), url(./fonts/Knewave.ttf) format('woff')
+}
+@font-face {
+  font-family: 'Miniver';
+  src: local('Miniver'), url(./fonts/Miniver.ttf) format('woff')
+}
 
 .App {
-  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 1vh;
+}
+
+.carousel {
+  max-height: 40vh;
+  max-width: 80vw;
+  min-width: 20vw;
+  margin: auto;
+  margin-top: 2vh;
+  padding-top: 1vh;
+  /* padding-bottom: 1vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .slide{
+  background: transparent;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-image {
+  max-width: 25vw;
+  max-height: 50vh;
+  object-fit: scale-down;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -36,50 +79,43 @@ html, body {
   animation-duration: 4s;
 }
 
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
-
 #first {
   animation: fadeOut;
   animation-delay: 6s;
 }
 
-
-.App-image {
-  background-color: #5f6d87;
-  min-height: 100vh;
+.App-header {
+  background-color: transparent;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  vertical-align: middle;
+  animation: rollIn;
+  animation-duration: 2s;
+  object-fit: scale-down;
+  padding-bottom: 5vh;
+  /* font-size: calc(10px + 2vmin); */
+}
+
+.App-title {
+  font-family: 'Knewave', cursive;
+  font-size: 7vw;
   color: white;
   text-shadow: 2px 2px #000000;
-  animation: rollIn;
-  animation-duration: 3s;
-}
-
-.App-header {
-  font-family: 'Knewave', cursive;
-  font-size: 85px;
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
 
-.App-header:pulse {
+.App-title:pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
+
 
 .App-link {
-  font-size: 35px;
+  font-size: 2vw;
   font-family: 'Bondoluo Peek Thin';
   color: #000000;
   text-shadow: .15px .05px #7b8aa6;
@@ -235,7 +271,7 @@ html, body {
 }
 
 .myPetsLink {
-  font-family: 'Miniver', cursive;
+  font-family: 'Miniver';
   font-size: 25px;
   font-weight: bold;
   color: #343555;
@@ -262,7 +298,7 @@ html, body {
 }
 
 .allPetsLogoutLink {
-  font-family: 'Miniver', cursive;
+  font-family: 'Miniver';
   font-size: 25px;
   font-weight: bold;
   color: #4d5b75;
@@ -314,6 +350,7 @@ html, body {
   margin: auto;
   display: flex;
   justify-content: space-around;
+  overflow: auto;
 }
 
 
@@ -365,8 +402,6 @@ html, body {
 
 .front:hover {
   transform: scaleY(1.05);
-  /* animation: swing; */
-  /* animation-duration: .75s; */
 }
 
 .back:hover{
@@ -382,7 +417,6 @@ html, body {
   align-items: stretch;
   max-height: 300px;
   overflow: scroll;
-  /* overflow-wrap: break-word; */
 }
 
 #details {
@@ -430,9 +464,6 @@ html, body {
   outline-style: ridge;
   transition: 0.75s;
   opacity: 1;
-  resize: horizontal;
-  resize: vertical;
-  resize-mode: contain;
 }
 
 .myPetTileh3 {
@@ -460,14 +491,13 @@ html, body {
 
 .adopted {
   font-family: 'Knewave', cursive;
-  font-size: 100px;
   font-weight: bold;
   color: black;
   text-shadow: 1.1px .55px #ffffff;
 }
 
 .adoptedPetsButton {
-  font-family: 'Amatic SC', cursive;
+  font-family: 'AmaticSC';
   font-size: 32px;
   font-weight: bolder;
   color: white;
@@ -488,8 +518,11 @@ html, body {
 
 .adoptedPets {
   width: 15%;
-  height: 25vh;
+  height: 100%;
   position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
   position: sticky;
   top: 0;
   margin-right: 23px;

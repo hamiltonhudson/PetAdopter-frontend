@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Animated } from 'react-animated-css';
 import PetCard from './PetCard';
 
@@ -33,7 +33,7 @@ class PetContainer extends Component {
 
   render() {
     let petList
-    if (this.props.checkboxClick){
+    if (this.props.checkboxClick) {
       petList = this.props.pets.map((pet) => {
         if (pet.animal === "Cat" && this.props.animalCheck==="Cats"){
           return <PetCard key={pet.id} pet={pet}

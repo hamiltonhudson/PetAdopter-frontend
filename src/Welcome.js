@@ -1,43 +1,71 @@
 import React, { Component } from 'react';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Animated } from 'react-animated-css';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './App.css';
 import './App.scss';
-import doggo from './images/doggo.jpg';
-import kitter from './images/kitter.jpg';
-import catdog from './images/catdog.jpg';
+
+const api50PetsAddress = 'http://localhost:3000/api/v1/sample50pets'
 
 class Welcome extends Component {
+    state = {
+      firstSample: '',
+      secondSample: '',
+      thirdSample: '',
+      fourthSample: '',
+      fifthSample: ''
+    }
 
-  handleClick = () => {
-    console.log("figure out delay and animation")
+  componentDidMount = () => {
+    fetch(api50PetsAddress, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      }
+    })
+    .then(response => response.json())
+    .then(fiftyPets => {
+      this.setState({
+        firstSample: (fiftyPets[Math.floor (Math.random() * fiftyPets.length)]),
+        secondSample: (fiftyPets[Math.floor (Math.random() * fiftyPets.length)]),
+        thirdSample: (fiftyPets[Math.floor (Math.random() * fiftyPets.length)]),
+        fourthSample: (fiftyPets[Math.floor (Math.random() * fiftyPets.length)]),
+        fifthSample: (fiftyPets[Math.floor (Math.random() * fiftyPets.length)])
+      })
+    })
+  }
+
+  petsCarousel = () => {
+    return (
+        <Carousel className="carousel" showThumbs={false} showStatus={false} showIndicators={false} useKeyboardArrows={true} infiniteLoop={true} autoPlay={true} stopOnHover={true} dynamicHeight={true}>
+          <img src={(this.state.firstSample)} alt={'Pet #1'} className="carousel-image"/>
+          <img src={(this.state.secondSample)} alt={'Pet #2'} className="carousel-image"/>
+          <img src={(this.state.thirdSample)} alt={'Pet #3'} className="carousel-image"/>
+          <img src={(this.state.fourthSample)} alt={'Pet #4'} className="carousel-image"/>
+          <img src={(this.state.fifthSample)} alt={'Pet #5'} className="carousel-image"/>
+        </Carousel>
+    )
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-image">
-          <img src={doggo}
-            alt="doggo" className="App-logo"
-          />
-          {/* <img src={kitter}
-            alt="kitter" className="App-logo"
-          /> */}
-          {/* <img src={catdog}
-            alt="cat-and-dog" className="App-logo"
-          /> */}
-          <br/><br/><br/><br/>
+        {this.petsCarousel()}
+        <br/><br/>
+        <header className="App-header">
           <Animated animationIn="pulse" animationOut="flash" isVisible={true}>
-            <p className="App-header">Adopt A Pet!</p>
+            <p className="App-title">Adopt A Pet!</p>
           </Animated>
-          <br/><br/>
-          <Link to='/signin' onClick={this.handleClick} className='App-link'>
-            SignIn
-          </Link>
-          <br></br><br></br>
-          <Link to='/signup' onClick={this.handleClick} className='App-link'>
-            SignUp
-          </Link>
+          <br/>
+          <span>
+            <Link to='/signin' onClick={this.handleClick} className='App-link'> SignIn </Link>
+          </span>
+          <br/>
+          <span>
+            <Link to='/signup' onClick={this.handleClick} className='App-link'> SignUp </Link>
+          </span>
         </header>
       </div>
     );

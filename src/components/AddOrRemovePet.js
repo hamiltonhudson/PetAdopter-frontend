@@ -16,7 +16,7 @@ class AddOrRemovePet extends React.Component {
       return <span className="adopted" style={{"fontSize" : "12px"}} img="𝔹𝕐 𝓤 ♥️"> By You ❤︎ </span>
     }
     else if (this.props.pet.owner_id !== userId && !myPetMatchIds.includes(petId)) {
-      return <span className="adopted" style={{"fontWeight" : "bold"}} img="♥️">♡</span>
+      return <span className="adopted" style={{"fontWeight" : "bold"}} img="♥️">❤︎</span>
     }
   }
 

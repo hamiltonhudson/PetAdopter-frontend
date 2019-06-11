@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
 import Welcome from './Welcome';
 import PetContainer from './components/PetContainer';
 
