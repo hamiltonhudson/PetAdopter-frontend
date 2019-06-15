@@ -16,28 +16,26 @@ class MyAdoptedPets extends React.Component {
   showAdopted = () => {
     if(this.state.shown) {
       return (
-        <div className="row">
           <div className="adoptedPets">
             <button className="adoptedPetsButton" onClick={this.handleShow}>Hide Adopted</button><br/>
-            {
-              this.props.myAdoptedPets.map(adoptedPet => {
-                return(
-                  <ul id="ulPets" key={adoptedPet.id}>
-                    {adoptedPet.name}
-                  </ul>
-                )
-              })
-            }
+            <div className="listOfPets">
+              {
+                this.props.myAdoptedPets.map(adoptedPet => {
+                  return(
+                    <li id="ulPets" key={adoptedPet.id}>
+                      ❤︎{adoptedPet.name}
+                    </li>
+                  )
+                })
+              }
+            </div>
           </div>
-        </div>
       )
     } else {
       return(
-        <div className="row">
           <div className="adoptedPets">
             <button className="adoptedPetsButton" onClick={this.handleShow}>Show Adopted</button>
           </div>
-        </div>
       )
     }
   }

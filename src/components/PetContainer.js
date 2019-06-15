@@ -85,7 +85,9 @@ class PetContainer extends Component {
     return (
       <div className="ui contianer">
         <br/>
-        <Link to="profile" className="myPetsLink">My Pets</Link>
+        <Link to="profile" className="linkInPetsMain">My Pets</Link>
+        <span style={{"fontSize": "25px", "color": "#404a5d", "fontWeight": "bolder"}}> | </span>
+        <Link to='/' className="linkInPetsMain" onClick={this.props.logout}>Logout</Link>
         <h1 className="welcomeHeader">Welcome {this.props.currentUser.name}</h1>
         <Animated animationIn="tada" animationOut="flash" isVisible={true}>
           <h1 className="petsHeader"> ❤︎ Pets! ❤︎ </h1>

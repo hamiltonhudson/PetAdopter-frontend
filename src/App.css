@@ -67,6 +67,8 @@ html, body {
 .carousel-image {
   max-width: 25vw;
   max-height: 50vh;
+  min-width: 125px;
+  min-height: 250px;
   object-fit: scale-down;
   display: flex;
   justify-content: center;
@@ -270,7 +272,7 @@ html, body {
   -webkit-text-fill-color: transparent;
 }
 
-.myPetsLink {
+.linkInPetsMain {
   font-family: 'Miniver';
   font-size: 25px;
   font-weight: bold;
@@ -280,7 +282,7 @@ html, body {
   text-decoration: underline;
 }
 
-.myPetsLink:hover{
+.linkInPetsMain:hover{
   color: #56587e;
   text-shadow: 2px 2px #343555;
 }
@@ -297,7 +299,7 @@ html, body {
   margin-bottom: 1px;
 }
 
-.allPetsLogoutLink {
+.linkInProfile {
   font-family: 'Miniver';
   font-size: 25px;
   font-weight: bold;
@@ -307,7 +309,7 @@ html, body {
   text-decoration: underline;
 }
 
-.allPetsLogoutLink:hover {
+.linkInProfile:hover {
   color: #343555;
   text-shadow: 2px 2px #475d6e;
 }
@@ -346,11 +348,11 @@ html, body {
 .savedPets {
   min-width: 90%;
   max-width: 150%;
-  height: 150vh;
+  /* height: 150vh; */
   margin: auto;
   display: flex;
-  justify-content: space-around;
-  overflow: auto;
+  justify-content: space-between;
+  /* overflow-y: scroll; */
 }
 
 
@@ -496,24 +498,15 @@ html, body {
   text-shadow: 1.1px .55px #ffffff;
 }
 
-.adoptedPetsButton {
-  font-family: 'AmaticSC';
-  font-size: 32px;
-  font-weight: bolder;
-  color: white;
-  text-shadow: 2.25px 2.25px #000000;
-  background-color: #5f6d87;
-  border: none;
-  box-shadow: 0 3px 5px 3px #7b8aa6;
-  overflow-wrap: break-word;
-  margin-bottom: 15px;
-}
-
-.adoptedPetsButton:hover {
-  color: #7b8aa6;
-  background-color: #5f6d87;
-  border: none;
-  box-shadow: 0 3px 5px 3px #7b8aa6;
+.apOuterDiv {
+  height: 100%;
+  margin-right: 30px;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .adoptedPets {
@@ -525,16 +518,44 @@ html, body {
   position: -o-sticky;
   position: sticky;
   top: 0;
-  margin-right: 23px;
-  margin-left: 5px;
+}
+
+.adoptedPetsButton {
+  font-family: 'AmaticSC';
+  font-size: 32px;
+  font-weight: bolder;
+  color: white;
+  text-shadow: 2.25px 2.25px #000000;
+  background-color: #5f6d87;
+  border: none;
+  box-shadow: 0 3px 5px 3px #7b8aa6;
+  overflow-wrap: break-word;
+  margin-bottom: 15px;
+  line-height: 40px;
+}
+
+.adoptedPetsButton:hover {
+  color: #7b8aa6;
+  background-color: #5f6d87;
+  border: none;
+  box-shadow: 0 3px 5px 3px #7b8aa6;
 }
 
 #ulPets {
   font-family: 'Bondoluo Peek Thin';
   letter-spacing: 1px;
   font-size: 14px;
+  /* max-height: 2vh; */
+  max-width: 4vw;
   color: #000000;
   font-weight: bolder;
   text-shadow: 2px 1.5px #7b8aa6;
-  margin-left: -30px;
+  margin: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.listOfPets {
+  display: table;
+  text-align: left;
 }

@@ -21,13 +21,13 @@ class ProfileContainer extends React.Component {
     return(
       <div>
         <br/>
-        <Link to='/' className="allPetsLogoutLink" onClick={this.props.resetCheckbox}>Back To All Pets</Link>
+        <Link to='/' className="linkInProfile" onClick={this.props.resetCheckbox}>Back To All Pets</Link>
         <span style={{"fontSize": "25px", "color": "#56587e", "fontWeight": "bolder"}}> | </span>
-        <Link to='/' className="allPetsLogoutLink" onClick={this.props.logout}>Logout</Link>
+        <Link to='/' className="linkInProfile" onClick={this.props.logout}>Logout</Link>
         <h1 className="profileHeader">{this.props.currentUser.name}'s Pet List </h1>
         <br/>
         <div className="profilePetsWrapper">
-          <div className="adoptedPets">
+          <div className="apOuterDiv">
             <MyAdoptedPets myAdoptedPets={this.props.myAdoptedPets} pets={this.props.pets}/>
           </div>
           <div className="savedPets">
